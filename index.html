@@ -1101,7 +1101,9 @@ const SYNC = { 'pf_skills':'saveSkills', 'pf_projects':'saveProjects', 'pf_certs
 // ═══════════════════════════════════════════════
 // GOOGLE SHEET DATABASE  (Apps Script Web App)
 // ═══════════════════════════════════════════════
-const API_URL = 'https://script.google.com/macros/s/AKfycbwBWQWPyzteSIjYhFGOd_FVNUjzdxEsyNX5NllzZCGZhcIX-mrfCYgEu_TKJo6KsYbf/exec';
+// ⬇️ Apps Script Web App URL এখানে paste করুন (…/exec দিয়ে শেষ হবে).
+//    এটা secret নয় — secret হলো ADMIN_KEY, যা শুধু Apps Script-এ থাকে।
+const API_URL = 'https://script.google.com/macros/s/AKfycbycPU1S96HhA6iBv04JG4CHawW-qIor1KpZKFRwb5Z5woFVHLLgIH6D2NI2PpgsY18l/exec';
 const SHEET_ON = /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(API_URL);
 const CACHE_KEY = 'pf_cache_v2';
 const KEY_NAME  = 'pf_akey';
@@ -2083,7 +2085,7 @@ function renderAdmSkills(){
   });
 }
 
-// একই listener — ক্যাটাগরির নাম কখনো onclick="" স্ট্রিংয়ে যায় না (যেকোনো নাম/ভাষা নিরাপদ)
+// एक ही listener — ক্যাটাগরির নাম কখনো onclick="" স্ট্রিংয়ে যায় না (যেকোনো নাম/ভাষা নিরাপদ)
 document.getElementById('skillAdmWrap').addEventListener('click',e=>{
   const t=e.target.closest('[data-act]'); if(!t) return;
   const card=t.closest('.adm-card'); if(!card||card.dataset.ci==null) return;
