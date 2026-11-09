@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" type="image/png" href="photo.png">
-<title>Imtiaz Azad Emon | Portfolio</title>
+<title>Imtiaz Azad Emon | CSE Student, Web Developer &amp; Cyber Security Learner</title>
+<meta name="description" content="Portfolio of Imtiaz Azad Emon: B.Sc. CSE student building web projects and learning cyber security, Linux and LLM automation.">
 
 <!-- Person Schema Markup (JSON-LD) -->
 <script type="application/ld+json">
@@ -704,6 +705,292 @@ footer{background:#05050a;border-top:1px solid var(--border);padding:45px 8%;dis
 /* ── certificate image fallback ── */
 .cert-image.no-img{display:none;}
 </style>
+
+<style id="redesign-v2">
+/* ===== Redesign v2: layered on top of the original styles ===== */
+.bg-scanline,.bg-noise,.bg-orb-3,.bg-orb-4{display:none}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+.btn{border-radius:12px}
+.hero-tag{text-transform:none;letter-spacing:.3px;font-size:14px}
+.exp-card,.edu-card{border-radius:14px}
+.edu-card:hover{transform:translateY(-4px)}
+.exp-card:hover{transform:translateY(-3px)}
+.focus-strip{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:-14px 0 34px;padding:0}
+.focus-strip li{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border);border-radius:10px;background:rgba(27,35,51,.7);font:500 13px var(--mono,'JetBrains Mono',monospace);color:#d7deea}
+.focus-strip i{color:var(--primary)}
+@media(max-width:1024px){.focus-strip{justify-content:center}}
+
+/* Footer */
+footer.site-footer{display:block;padding:64px 8% 26px;background:linear-gradient(180deg,#0c111c,#070a12);border-top:1px solid var(--border)}
+.ft-grid{display:grid;grid-template-columns:1.6fr 1fr 1.2fr auto;gap:48px;align-items:start}
+.ft-brand .logo{font-size:22px}
+.ft-brand p{color:var(--muted);font-size:14px;max-width:340px;margin:14px 0 18px}
+.ft-social{display:flex;gap:10px}
+.ft-social a{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--border);border-radius:10px;color:var(--text);text-decoration:none;transition:var(--transition)}
+.ft-social a:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px)}
+.ft-col h5{font:700 15px 'Syne',sans-serif;margin-bottom:14px}
+.ft-col a,.ft-col span{display:block;color:var(--muted);font-size:14px;text-decoration:none;margin-bottom:9px;transition:color .2s}
+.ft-col a:hover{color:var(--primary)}
+.ft-col .ok{color:var(--success)}
+.ft-bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:44px;padding-top:20px;border-top:1px solid var(--border)}
+.ft-top{color:var(--muted);font-size:14px;text-decoration:none}.ft-top:hover{color:var(--primary)}
+@media(max-width:900px){.ft-grid{grid-template-columns:1fr 1fr;gap:34px}}
+@media(max-width:520px){.ft-grid{grid-template-columns:1fr}footer.site-footer{padding:48px 6% 22px}}
+
+/* Admin dashboard: sidebar layout */
+.admin-ov.show{display:grid;grid-template-columns:252px 1fr}
+.admin-hdr{flex-direction:column;align-items:stretch;justify-content:flex-start;height:auto;padding:22px 14px;gap:18px;border-bottom:0;border-right:1px solid var(--border);background:#0a0e17;overflow-y:auto}
+.admin-logo{font-size:19px;padding:0 8px}
+.adm-status{display:flex;align-items:center;gap:8px;padding:0 8px;margin-top:-10px;color:var(--muted);font-size:12px}
+.adm-status .dot{width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 8px var(--success)}
+.adm-nav{flex-direction:column;gap:4px}
+.adm-nb{width:100%;justify-content:flex-start;border:0;border-radius:10px;padding:11px 14px;font-size:14px}
+.adm-nb.active{background:rgba(0,212,170,.12);box-shadow:inset 3px 0 0 var(--primary)}
+.adm-logout{margin-top:auto;justify-content:center;border-radius:10px;padding:11px}
+.admin-body{padding:32px 36px;background:radial-gradient(900px 400px at 80% -10%,rgba(59,157,255,.08),transparent)}
+.adm-card{border-radius:14px;background:#141b2a}
+.quick-acts{display:flex;flex-wrap:wrap;gap:10px;margin:-6px 0 22px}
+.qa{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid var(--border);background:#141b2a;color:var(--text);font:600 13px 'Mulish',sans-serif;transition:var(--transition)}
+.qa:hover{border-color:var(--primary);color:var(--primary)}
+.qa i{color:var(--primary)}
+@media(max-width:768px){
+  .admin-ov.show{display:flex;flex-direction:column}
+  .admin-hdr{flex-direction:row;flex-wrap:wrap;align-items:center;padding:10px 12px;gap:8px;border-right:0;border-bottom:1px solid var(--border)}
+  .adm-status{display:none}
+  .adm-nav{display:flex!important;flex-direction:row;order:3;width:100%;overflow-x:auto;padding-bottom:4px}
+  .adm-nb{width:auto;white-space:nowrap}
+  .adm-logout{margin:0 0 0 auto}
+  .admin-body{padding:18px 14px}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}.bg-orb{display:none}}
+</style>
+
+<style id="redesign-v3">
+/* OTP modal */
+.otp-inp{letter-spacing:.45em;font:700 22px var(--mono,'JetBrains Mono',monospace);text-align:center;padding-left:3em}
+.otp-step{animation:otpIn .35s cubic-bezier(.25,1,.5,1)}
+.otp-step[hidden]{display:none}
+.otp-meta{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:13px;color:var(--muted)}
+.otp-resend{background:none;border:0;color:var(--tg);font:600 13px 'Mulish',sans-serif}
+.otp-resend:disabled{color:var(--muted);opacity:.75}
+.login-box.shake{animation:otpShake .4s}
+.login-box.ok .login-ico{animation:otpPop .5s}
+.login-ico .fa-telegram-plane{color:var(--tg);animation:otpFly 3s ease-in-out infinite}
+@keyframes otpIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+@keyframes otpShake{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+@keyframes otpPop{50%{transform:scale(1.25) rotate(-8deg)}}
+@keyframes otpFly{50%{transform:translate(4px,-4px)}}
+/* Admin motion + icons */
+.admin-ov.show .admin-hdr{animation:admSide .5s cubic-bezier(.25,1,.5,1) both}
+.admin-ov.show .adm-nb{animation:admUp .45s cubic-bezier(.25,1,.5,1) both}
+.admin-ov.show .adm-nb:nth-child(1){animation-delay:0.18s}.admin-ov.show .adm-nb:nth-child(2){animation-delay:0.24s}.admin-ov.show .adm-nb:nth-child(3){animation-delay:0.30s}.admin-ov.show .adm-nb:nth-child(4){animation-delay:0.36s}.admin-ov.show .adm-nb:nth-child(5){animation-delay:0.42s}.admin-ov.show .adm-nb:nth-child(6){animation-delay:0.48s}.admin-ov.show .adm-nb:nth-child(7){animation-delay:0.54s}
+.adm-nb i{width:20px;text-align:center;transition:transform .3s}
+.adm-nb:hover i{transform:translateY(-2px) rotate(-8deg) scale(1.15)}
+.adm-nb.active i{filter:drop-shadow(0 0 6px currentColor)}
+.adm-nb[data-s=overview] i{color:#00d4aa}.adm-nb[data-s=visitors] i{color:#3b9dff}.adm-nb[data-s=skills] i{color:#ffb800}.adm-nb[data-s=projects] i{color:#a78bfa}.adm-nb[data-s=certs] i{color:#ff7a90}.adm-nb[data-s=settings] i{color:#4fd1c5}.adm-nb[data-s=icons] i{color:#f6ad55}
+.adm-sec.active{animation:admUp .45s cubic-bezier(.25,1,.5,1)}
+.adm-title i{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:rgba(0,212,170,.12);font-size:17px}
+.adm-welcome{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:20px 22px;margin-bottom:18px;border:1px solid var(--border);border-radius:14px;background:linear-gradient(120deg,rgba(0,212,170,.12),rgba(59,157,255,.08))}
+.aw-hi{font:700 20px 'Syne',sans-serif;display:flex;align-items:center;gap:10px}
+.aw-hi i{color:var(--warning);animation:admWave 2.4s ease-in-out infinite;transform-origin:70% 70%}
+.aw-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.aw-chips span{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:20px;background:rgba(255,255,255,.06);font-size:12px;color:#d7deea}
+.aw-chips i{color:var(--primary)}
+.aw-clock{font:500 13px var(--mono,'JetBrains Mono',monospace);color:var(--muted);display:flex;align-items:center;gap:8px}
+.stat-box{position:relative;transition:var(--transition)}
+.stat-box:hover{transform:translateY(-4px);border-color:rgba(0,212,170,.4)}
+.stat-box-ico{background:color-mix(in srgb,currentColor 14%,transparent)}
+.stat-box:nth-child(1) .stat-box-ico{color:#3b9dff}.stat-box:nth-child(2) .stat-box-ico{color:#00d4aa}.stat-box:nth-child(3) .stat-box-ico{color:#a78bfa}.stat-box:nth-child(4) .stat-box-ico{color:#ffb800}.stat-box:nth-child(5) .stat-box-ico{color:#ff7a90}
+.stat-box:hover .stat-box-ico{animation:qaBounce .5s}
+.mbar{transform-origin:bottom;animation:barGrow .7s cubic-bezier(.25,1,.5,1) both}
+.mbar:nth-child(1){animation-delay:0.07s}.mbar:nth-child(2){animation-delay:0.14s}.mbar:nth-child(3){animation-delay:0.21s}.mbar:nth-child(4){animation-delay:0.28s}.mbar:nth-child(5){animation-delay:0.35s}.mbar:nth-child(6){animation-delay:0.42s}.mbar:nth-child(7){animation-delay:0.49s}
+.qa:hover i{animation:qaBounce .5s}
+.vis-tbl th i{color:var(--primary);margin-right:6px}
+.vis-tbl tbody tr{animation:admUp .4s both;transition:background .2s}
+.vis-tbl tbody tr:hover{background:rgba(255,255,255,.04)}
+@keyframes admSide{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
+@keyframes admUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes barGrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes qaBounce{40%{transform:translateY(-5px) scale(1.2)}}
+@keyframes admWave{0%,60%,100%{transform:rotate(0)}10%,30%{transform:rotate(14deg)}20%,40%{transform:rotate(-8deg)}}
+</style>
+<style id="redesign-v4">
+.sk-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}
+.sk-src,.sk-cert{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:8px;text-decoration:none;border:1px solid var(--border)}
+.src-job{color:#7cc4ff;border-color:rgba(59,157,255,.35);background:rgba(59,157,255,.08)}
+.src-self{color:#c4b5fd;border-color:rgba(167,139,250,.35);background:rgba(167,139,250,.08)}
+.sk-cert{color:var(--warning);border-color:rgba(255,184,0,.35);background:rgba(255,184,0,.08);transition:var(--transition)}
+.sk-cert:hover{background:var(--warning);color:var(--dark)}
+.src-filter{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.src-filter button{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--muted);font:600 13px 'Mulish',sans-serif;transition:var(--transition)}
+.src-filter button.on,.src-filter button:hover{color:var(--primary);border-color:rgba(0,212,170,.4);background:rgba(0,212,170,.08)}
+#skillTabsContent[data-filter=job] .skill-card:not([data-src=job]),#skillTabsContent[data-filter=self] .skill-card:not([data-src=self]){display:none}
+.sk-info{display:flex;flex-wrap:wrap;gap:6px}.sk-info .sk-name{width:100%}
+.sk-info .sk-lvl-sel{width:auto;flex:1 1 120px}
+.sk-add-form{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+</style>
+<style id="redesign-v5">
+/* ═══════════════════════════════════════════════════════════
+   v5 — Skills admin, dialogs, readable dropdowns, new footer
+   (আগের স্টাইলের উপর স্তর হিসেবে বসে; কিছু মুছে ফেলা হয়নি)
+═══════════════════════════════════════════════════════════ */
+
+/* ── ড্রপডাউন: গাঢ় থিমে লেখা যেন সাদা-উপর-সাদা না হয় ── */
+.fsel,.sk-lvl-sel,select.finp{color-scheme:dark;background-color:#101725;}
+select option{background:#141b2a;color:#f8fafc;}
+
+/* ── SKILLS ADMIN: সারাংশ ── */
+.sk-summary{display:flex;flex-wrap:wrap;gap:10px;margin:-8px 0 20px;}
+.sk-chip{display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border-radius:10px;background:#141b2a;border:1px solid var(--border);font-size:12px;color:var(--muted);}
+.sk-chip b{color:#fff;font:700 14px 'Syne',sans-serif;}
+.sk-chip i{color:var(--primary);}
+.sk-chip .sd{width:8px;height:8px;border-radius:50%;display:inline-block;}
+.sk-chip .sd.b{background:var(--warning);}
+.sk-chip .sd.i{background:var(--primary);}
+.sk-chip .sd.e{background:var(--success);}
+
+/* ── SKILLS ADMIN: ক্যাটাগরি কার্ড ── */
+.sk-cat{padding:0;overflow:hidden;}
+.sk-cat-h{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border);background:linear-gradient(90deg,rgba(0,212,170,.09),transparent 65%);}
+.sk-cat-ico{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:rgba(0,212,170,.12);color:var(--primary);font-size:16px;flex-shrink:0;}
+.sk-cat-t{flex:1;min-width:0;}
+.sk-cat-t h4{font:700 16px 'Syne',sans-serif;color:#fff;overflow-wrap:anywhere;line-height:1.3;}
+.sk-cat-t span{font-size:12px;color:var(--muted);}
+.sk-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;padding:18px 20px 20px;}
+
+/* ── SKILLS ADMIN: একটি স্কিল ── */
+.sk-item{position:relative;display:flex;align-items:center;gap:13px;padding:13px 14px;border-radius:12px;background:rgba(255,255,255,.025);border:1px solid var(--border);transition:var(--transition);}
+.sk-item:hover{border-color:rgba(0,212,170,.4);background:rgba(0,212,170,.04);transform:translateY(-2px);}
+.sk-item .sk-ico-preview{width:46px;height:46px;border-radius:11px;font-size:19px;}
+.sk-main{flex:1;min-width:0;}
+.sk-nm{font-weight:700;font-size:14px;color:#fff;overflow-wrap:anywhere;line-height:1.3;margin-bottom:6px;}
+.sk-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+.sk-meta .skill-badge{font-size:10px;padding:2px 9px;}
+.sk-meta .sk-src,.sk-meta .sk-cert{font-size:10.5px;padding:2px 8px;}
+.sk-acts{display:grid;grid-template-columns:repeat(2,30px);gap:5px;flex-shrink:0;}
+.sk-act{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);display:grid;place-items:center;font-size:12px;transition:var(--transition);}
+.sk-act:hover{color:var(--primary);border-color:rgba(0,212,170,.45);background:rgba(0,212,170,.1);}
+.sk-act.danger:hover{color:var(--danger);border-color:rgba(230,57,70,.45);background:rgba(230,57,70,.1);}
+.sk-act:disabled{opacity:.3;pointer-events:none;}
+.sk-add-tile{display:flex;align-items:center;justify-content:center;gap:9px;min-height:72px;border:1.5px dashed rgba(0,212,170,.35);border-radius:12px;background:transparent;color:var(--primary);font:700 13px 'Mulish',sans-serif;transition:var(--transition);}
+.sk-add-tile:hover{background:rgba(0,212,170,.08);border-style:solid;transform:translateY(-2px);}
+.sk-empty-note{grid-column:1/-1;color:var(--muted);font-size:13px;padding:2px 2px 6px;}
+.sk-none-card{text-align:center;color:var(--muted);padding:34px 20px;}
+
+/* ── SKILL EDITOR MODAL ── */
+.sk-box{max-width:640px;}
+.sk-hint{font-weight:400;opacity:.75;}
+.ic-row{display:grid;grid-template-columns:54px 1fr;gap:12px;align-items:center;}
+.ic-prev{width:54px;height:54px;border-radius:12px;display:grid;place-items:center;font-size:22px;color:var(--primary);background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.28);transition:var(--transition);}
+.ic-prev.bad{color:var(--danger);background:rgba(230,57,70,.1);border-color:rgba(230,57,70,.4);}
+.ic-pick{max-height:176px;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:6px;padding:8px;margin-top:8px;border:1px solid var(--border);border-radius:10px;background:rgba(0,0,0,.22);}
+.ic-pick::-webkit-scrollbar{width:4px;}
+.ic-pick::-webkit-scrollbar-thumb{background:var(--primary);border-radius:4px;}
+.ic-pick button{height:40px;border-radius:8px;border:1px solid transparent;background:rgba(255,255,255,.03);color:var(--muted);font-size:16px;transition:var(--transition);}
+.ic-pick button:hover,.ic-pick button.on{color:var(--primary);border-color:rgba(0,212,170,.4);background:rgba(0,212,170,.1);}
+.ic-pick .ic-none{grid-column:1/-1;text-align:center;color:var(--muted);font-size:12px;padding:10px;}
+.sk-lvl-seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.sk-lvl-seg button{padding:10px 8px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--muted);font:700 12.5px 'Mulish',sans-serif;transition:var(--transition);}
+.sk-lvl-seg button:hover{color:#fff;border-color:rgba(255,255,255,.3);}
+.sk-lvl-seg button[aria-pressed=true][data-v=beginner]{background:rgba(255,184,0,.12);color:var(--warning);border-color:rgba(255,184,0,.45);}
+.sk-lvl-seg button[aria-pressed=true][data-v=intermediate]{background:rgba(0,212,170,.12);color:var(--primary);border-color:rgba(0,212,170,.45);}
+.sk-lvl-seg button[aria-pressed=true][data-v=expert]{background:rgba(0,255,159,.12);color:var(--success);border-color:rgba(0,255,159,.45);}
+.fld-err{color:var(--danger);font-size:12.5px;min-height:18px;margin-top:12px;overflow-wrap:anywhere;}
+
+/* ── IN-PAGE CONFIRM / PROMPT ── */
+.dlg-ov{position:fixed;inset:0;z-index:75000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.72);backdrop-filter:blur(5px);padding:16px;}
+.dlg-ov.show{display:flex;}
+.dlg-box{width:100%;max-width:410px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px;box-shadow:0 24px 60px rgba(0,0,0,.55);animation:admUp .3s cubic-bezier(.25,1,.5,1);}
+.dlg-ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:19px;margin-bottom:14px;background:rgba(0,212,170,.12);color:var(--primary);}
+.dlg-box.danger .dlg-ico{background:rgba(230,57,70,.12);color:var(--danger);}
+.dlg-t{font:700 18px 'Syne',sans-serif;margin-bottom:8px;color:#fff;}
+.dlg-m{color:var(--muted);font-size:14px;line-height:1.55;overflow-wrap:anywhere;}
+.dlg-m:empty{display:none;}
+.dlg-box .finp{width:100%;margin-top:12px;}
+.dlg-acts{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;}
+.dlg-btn{padding:10px 18px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--text);font:700 13px 'Mulish',sans-serif;transition:var(--transition);}
+.dlg-btn:hover{border-color:rgba(255,255,255,.4);}
+.dlg-btn.pri{background:var(--primary);color:var(--dark);border-color:transparent;}
+.dlg-btn.pri:hover{box-shadow:0 8px 22px var(--primary-glow);}
+.dlg-box.danger .dlg-btn.pri{background:var(--danger);color:#fff;}
+.dlg-box.danger .dlg-btn.pri:hover{box-shadow:0 8px 22px rgba(230,57,70,.4);}
+
+/* ── PUBLIC SKILLS: ফাঁকা অবস্থার বার্তা ── */
+.sk-none,.sk-filter-empty{text-align:center;color:var(--muted);font-size:14px;padding:30px 10px;}
+.sk-filter-empty[hidden]{display:none;}
+
+@media(max-width:600px){
+  .sk-list{grid-template-columns:1fr;padding:14px;}
+  .sk-cat-h{padding:14px;}
+  .sk-box{padding:24px 18px;}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════ */
+footer.site-footer{position:relative;isolation:isolate;display:block;padding:64px 8% 26px;overflow:hidden;text-align:left;border-top:0;background:linear-gradient(180deg,#0b101b 0%,#060911 100%);}
+footer.site-footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--primary) 28%,var(--accent) 72%,transparent);opacity:.9;}
+footer.site-footer::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(620px 280px at 10% 0%,rgba(0,212,170,.11),transparent 70%),radial-gradient(580px 280px at 94% 100%,rgba(59,157,255,.11),transparent 70%);}
+.ft-mark{position:absolute;left:50%;bottom:-.2em;transform:translateX(-50%);z-index:-1;font:800 clamp(70px,17vw,230px)/1 'Syne',sans-serif;letter-spacing:.05em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.055);white-space:nowrap;pointer-events:none;user-select:none;}
+
+.ft-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px;margin-bottom:56px;padding:30px 34px;border-radius:20px;border:1px solid rgba(0,212,170,.24);background:linear-gradient(120deg,rgba(0,212,170,.13),rgba(59,157,255,.10));box-shadow:0 18px 50px rgba(0,0,0,.28);}
+.ft-cta h4{font:800 clamp(20px,2.6vw,28px)/1.25 'Syne',sans-serif;color:#fff;}
+.ft-cta h4 em{font-style:normal;color:var(--primary);}
+.ft-cta p{color:var(--muted);font-size:14px;margin-top:6px;max-width:460px;}
+.ft-cta-btns{display:flex;flex-wrap:wrap;gap:12px;}
+.ft-btn{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:12px;border:1px solid var(--border);background:transparent;color:var(--text);font:700 14px 'Mulish',sans-serif;text-decoration:none;transition:var(--transition);}
+.ft-btn:hover{transform:translateY(-3px);border-color:var(--primary);color:var(--primary);}
+.ft-btn.pri{background:var(--primary);color:var(--dark);border-color:transparent;}
+.ft-btn.pri:hover{color:var(--dark);box-shadow:0 10px 28px var(--primary-glow);}
+
+footer.site-footer .ft-grid{display:grid;grid-template-columns:1.5fr .9fr 1.25fr 1.1fr;gap:44px;align-items:start;}
+.ft-brand .logo{font-size:22px;}
+.ft-brand p{color:var(--muted);font-size:14px;max-width:340px;margin:14px 0 20px;}
+.ft-social{display:flex;gap:10px;}
+.ft-social a{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.03);color:var(--text);text-decoration:none;font-size:16px;transition:var(--transition);}
+.ft-social a:hover{color:var(--dark);background:var(--primary);border-color:transparent;transform:translateY(-4px);box-shadow:0 10px 24px var(--primary-glow);}
+.ft-col h5{font:700 15px 'Syne',sans-serif;color:#fff;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.ft-col h5::after{content:'';flex:0 0 22px;height:2px;border-radius:2px;background:var(--primary);}
+.ft-col .ft-links a{display:flex;align-items:center;gap:0;color:var(--muted);font-size:14px;text-decoration:none;margin-bottom:11px;transition:var(--transition);}
+.ft-col .ft-links a::before{content:'';width:0;height:2px;border-radius:2px;background:var(--primary);margin-right:0;transition:var(--transition);}
+.ft-col .ft-links a:hover{color:var(--primary);}
+.ft-col .ft-links a:hover::before{width:14px;margin-right:9px;}
+.ft-col .ft-line{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;color:var(--muted);font-size:14px;text-decoration:none;line-height:1.5;transition:color .2s;}
+.ft-col a.ft-line:hover{color:var(--primary);}
+.ft-col .ft-line .fi{width:34px;height:34px;flex-shrink:0;display:grid;place-items:center;border-radius:10px;background:rgba(0,212,170,.1);color:var(--primary);font-size:13px;margin:0;}
+.ft-col .ft-line .ft-tx{display:block;margin:0;padding-top:6px;color:inherit;overflow-wrap:anywhere;}
+.ft-avail{display:inline-flex;align-items:center;gap:9px;margin-top:4px;padding:7px 13px;border-radius:50px;border:1px solid rgba(0,255,159,.3);background:rgba(0,255,159,.08);color:var(--success);font-size:12.5px;font-weight:700;}
+.ft-avail .ft-dot{width:8px;height:8px;border-radius:50%;background:var(--success);box-shadow:0 0 0 0 rgba(0,255,159,.6);animation:ftPing 2s infinite;}
+@keyframes ftPing{0%{box-shadow:0 0 0 0 rgba(0,255,159,.55)}70%{box-shadow:0 0 0 9px rgba(0,255,159,0)}100%{box-shadow:0 0 0 0 rgba(0,255,159,0)}}
+
+.ft-local{display:flex;flex-direction:column;gap:12px;}
+.ft-local .weather-widget{border-radius:16px;padding:14px 18px;background:rgba(255,255,255,.03);box-shadow:none;}
+.ft-clock{display:flex;align-items:center;gap:14px;padding:13px 18px;border:1px solid var(--border);border-radius:16px;background:rgba(255,255,255,.03);}
+.ft-clock .ci{font-size:22px;color:var(--accent);}
+.ft-clock .t{font:700 19px var(--mono);color:#fff;letter-spacing:.5px;}
+.ft-clock .d{font-size:12px;color:var(--muted);margin-top:2px;}
+
+.ft-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:50px;padding-top:22px;border-top:1px solid var(--border);}
+.ft-bar .footer-txt{font-size:13.5px;}
+.ft-tech{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:8px;}
+.ft-tech i{color:var(--primary);}
+footer.site-footer .ft-top{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:13px;font-weight:700;text-decoration:none;transition:var(--transition);}
+footer.site-footer .ft-top:hover{color:var(--dark);background:var(--primary);border-color:transparent;transform:translateY(-3px);}
+
+@media(max-width:1100px){
+  footer.site-footer .ft-grid{grid-template-columns:1fr 1fr;gap:38px;}
+}
+@media(max-width:560px){
+  footer.site-footer{padding:48px 6% 22px;}
+  .ft-cta{padding:24px 20px;margin-bottom:42px;}
+  .ft-cta-btns{width:100%;}
+  .ft-cta-btns .ft-btn{flex:1;justify-content:center;}
+  footer.site-footer .ft-grid{grid-template-columns:1fr;gap:34px;}
+  .ft-bar{flex-direction:column;align-items:flex-start;}
+}
+@media(prefers-reduced-motion:reduce){.ft-avail .ft-dot{animation:none;}}
+.sk-meta .sk-cert:hover{background:rgba(255,184,0,.08);color:var(--warning);}
+</style>
 </head>
 <body>
 
@@ -765,6 +1052,7 @@ footer{background:#05050a;border-top:1px solid var(--border);padding:45px 8%;dis
       <span class="typing-text" id="typingEl"></span>
     </div>
     <p class="hero-desc reveal">Born in 1987 in Barguna District, with over four years of experience in the garment accessories industry. Currently serving as a Store and QC Manager, I focus on optimizing operations and ensuring quality control.</p>
+    <ul class="focus-strip reveal" aria-label="Focus areas"><li><i class="fas fa-shield-halved"></i>Cyber security</li><li><i class="fas fa-robot"></i>LLM &amp; automation</li><li><i class="fas fa-code"></i>Web development</li><li><i class="fab fa-linux"></i>Linux &amp; Python</li></ul>
     <div class="cta-group reveal">
       <a href="resume.pdf" download class="btn btn-primary"><i class="fas fa-file-download"></i> Download CV</a>
       <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Hire Me</a>
@@ -899,11 +1187,68 @@ footer{background:#05050a;border-top:1px solid var(--border);padding:45px 8%;dis
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <p class="footer-txt">© 2026 <span class="cr" id="footerCR" title="Admin Panel">Imtiaz Azad Emon</span>. All rights reserved.</p>
-  <div class="weather-widget" id="weatherWid">
-    <i class="fas fa-spinner fa-spin w-icon"></i>
-    <div><div class="w-temp">Loading...</div><div class="w-loc"><i class="fas fa-map-marker-alt"></i> Dhaka, BD</div></div>
+<footer class="site-footer">
+  <span class="ft-mark" aria-hidden="true">IA EMON</span>
+
+  <div class="ft-cta">
+    <div>
+      <h4>Let’s build something <em>great</em> together.</h4>
+      <p>Have a project, an opportunity or just a question? I usually reply within a day.</p>
+    </div>
+    <div class="ft-cta-btns">
+      <a class="ft-btn pri" href="mailto:iaemon28@gmail.com"><i class="fas fa-paper-plane"></i> Email me</a>
+      <button class="ft-btn" type="button" id="ftChat"><i class="fab fa-telegram-plane"></i> Chat now</button>
+    </div>
+  </div>
+
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <a href="#home" class="logo">IA EMON<em>.</em></a>
+      <p>Store &amp; QC Manager and B.Sc. CSE student, building web projects and learning cyber security and LLM tooling.</p>
+      <div class="ft-social">
+        <a href="https://github.com/iaemonbd" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/iae/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:iaemon28@gmail.com" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <nav class="ft-col" aria-label="Footer links">
+      <h5>Explore</h5>
+      <div class="ft-links">
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <div class="ft-col">
+      <h5>Get in touch</h5>
+      <a class="ft-line" href="mailto:iaemon28@gmail.com"><span class="fi"><i class="fas fa-envelope"></i></span><span class="ft-tx">iaemon28@gmail.com</span></a>
+      <div class="ft-line"><span class="fi"><i class="fas fa-map-marker-alt"></i></span><span class="ft-tx">Uttara, Dhaka, Bangladesh</span></div>
+      <div class="ft-avail"><i class="ft-dot"></i> Available for opportunities</div>
+    </div>
+
+    <div class="ft-col">
+      <h5>Local</h5>
+      <div class="ft-local">
+        <div class="weather-widget" id="weatherWid">
+          <i class="fas fa-spinner fa-spin w-icon"></i>
+          <div><div class="w-temp">Loading...</div><div class="w-loc"><i class="fas fa-map-marker-alt"></i> Dhaka, BD</div></div>
+        </div>
+        <div class="ft-clock" id="ftClock" aria-label="Current time in Dhaka">
+          <i class="far fa-clock ci"></i>
+          <div><div class="t">--:--:--</div><div class="d">Dhaka time</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ft-bar">
+    <p class="footer-txt">© 2026 <span class="cr" id="footerCR">Imtiaz Azad Emon</span>. All rights reserved.</p>
+    <span class="ft-tech"><i class="fas fa-code"></i> Built with HTML, CSS &amp; JavaScript</span>
+    <a href="#home" class="ft-top"><i class="fas fa-arrow-up"></i> Back to top</a>
   </div>
 </footer>
 
@@ -937,17 +1282,21 @@ footer{background:#05050a;border-top:1px solid var(--border);padding:45px 8%;dis
 
 <!-- SHEET ADMIN KEY -->
 <div class="login-ov" id="keyOv">
-  <div class="login-box">
-    <button class="login-close" id="keyClose"><i class="fas fa-times"></i></button>
-    <div class="login-ico"><i class="fas fa-table"></i></div>
+  <div class="login-box" id="otpBox">
+    <button class="login-close" id="keyClose" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div class="login-ico"><i class="fab fa-telegram-plane"></i></div>
     <h2>Admin Login</h2>
-    <p>Enter your ADMIN_KEY to open the admin panel and save changes to Google Sheet.</p>
-    <div class="login-field">
-      <i class="fas fa-key"></i>
-      <input type="password" class="login-inp" id="keyInp" placeholder="Admin key..." autocomplete="current-password">
+    <div class="otp-step" id="otpStep1">
+      <p>We'll send a 6-digit one-time code to your Telegram bot chat.</p>
+      <button class="login-submit" id="otpSend"><i class="fas fa-paper-plane"></i> Send OTP to Telegram</button>
     </div>
-    <label class="key-remember"><input type="checkbox" id="keyRemember"> Remember on this device (less secure)</label>
-    <button class="login-submit" id="keyBtn"><i class="fas fa-unlock"></i> Unlock</button>
+    <div class="otp-step" id="otpStep2" hidden>
+      <p>Enter the code from Telegram. It expires in 5 minutes.</p>
+      <div class="login-field"><i class="fas fa-key"></i><input type="text" class="login-inp otp-inp" id="keyInp" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" placeholder="••••••"></div>
+      <label class="key-remember"><input type="checkbox" id="keyRemember"> Keep me signed in on this device</label>
+      <button class="login-submit" id="keyBtn"><i class="fas fa-unlock"></i> Verify &amp; sign in</button>
+      <div class="otp-meta"><span><i class="fas fa-shield-alt"></i> Code works once</span><button type="button" class="otp-resend" id="otpResend" disabled>Resend code</button></div>
+    </div>
   </div>
 </div>
 
@@ -1009,10 +1358,54 @@ footer{background:#05050a;border-top:1px solid var(--border);padding:45px 8%;dis
   </div>
 </div>
 
+<!-- SKILL EDITOR (add / edit) -->
+<div class="pf-ov" id="skOv" role="dialog" aria-modal="true" aria-labelledby="skmTitle">
+  <div class="pf-box sk-box">
+    <button class="pf-close" id="skmClose" type="button" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div class="pf-title" id="skmTitle">Add skill</div>
+    <div class="pf-grid">
+      <div class="fg"><label class="flbl" for="skmName">Skill name</label><input class="finp" id="skmName" maxlength="80" placeholder="e.g. React" autocomplete="off"></div>
+      <div class="fg"><label class="flbl" for="skmCat">Category</label><select class="finp fsel" id="skmCat"></select></div>
+      <div class="fg pf-full">
+        <label class="flbl" for="skmIcon">Icon <span class="sk-hint">— type a Font Awesome class or pick one below</span></label>
+        <div class="ic-row"><div class="ic-prev" id="skmPrev"><i class="fas fa-star"></i></div><input class="finp" id="skmIcon" maxlength="60" placeholder="fas fa-star" autocomplete="off" spellcheck="false"></div>
+        <div class="ic-pick" id="skmPick"></div>
+      </div>
+      <div class="fg pf-full"><span class="flbl">Level</span>
+        <div class="sk-lvl-seg" id="skmLvl" role="group" aria-label="Level">
+          <button type="button" data-v="beginner" aria-pressed="false">Beginner</button>
+          <button type="button" data-v="intermediate" aria-pressed="false">Intermediate</button>
+          <button type="button" data-v="expert" aria-pressed="false">Expert</button>
+        </div>
+      </div>
+      <div class="fg"><label class="flbl" for="skmSrc">Learned from</label><select class="finp fsel" id="skmSrc"></select></div>
+      <div class="fg"><label class="flbl" for="skmCert">Reference certificate</label><select class="finp fsel" id="skmCert"></select></div>
+    </div>
+    <div class="fld-err" id="skmErr" role="alert"></div>
+    <button class="save-btn" id="skmSave" type="button"><i class="fas fa-save"></i> Save skill</button>
+  </div>
+</div>
+
+<!-- IN-PAGE CONFIRM / PROMPT -->
+<div class="dlg-ov" id="dlgOv" role="alertdialog" aria-modal="true" aria-labelledby="dlgTitle">
+  <div class="dlg-box" id="dlgBox">
+    <div class="dlg-ico"><i id="dlgIcon" class="fas fa-circle-question"></i></div>
+    <div class="dlg-t" id="dlgTitle"></div>
+    <div class="dlg-m" id="dlgMsg"></div>
+    <input class="finp" id="dlgInp" hidden autocomplete="off">
+    <div class="fld-err" id="dlgErr"></div>
+    <div class="dlg-acts">
+      <button class="dlg-btn" id="dlgCancel" type="button">Cancel</button>
+      <button class="dlg-btn pri" id="dlgOk" type="button">OK</button>
+    </div>
+  </div>
+</div>
+
 <!-- ADMIN DASHBOARD -->
 <div class="admin-ov" id="adminOv">
   <div class="admin-hdr">
     <div class="admin-logo">Admin <em>Dashboard</em></div>
+    <div class="adm-status"><span class="dot"></span> Secured with Telegram OTP</div>
     <nav class="adm-nav">
       <button class="adm-nb active" data-s="overview"><i class="fas fa-chart-bar"></i> Overview</button>
       <button class="adm-nb" data-s="visitors"><i class="fas fa-users"></i> Visitors</button>
@@ -1030,6 +1423,17 @@ footer{background:#05050a;border-top:1px solid var(--border);padding:45px 8%;dis
       <!-- OVERVIEW -->
       <div class="adm-sec active" id="s-overview">
         <div class="adm-title"><i class="fas fa-chart-bar"></i> Overview</div>
+        <div class="adm-welcome">
+          <div><div class="aw-hi"><i class="fas fa-hand-sparkles"></i> Welcome back, Emon</div>
+          <div class="aw-chips"><span><i class="fab fa-telegram-plane"></i> Telegram OTP login</span><span><i class="fas fa-cloud"></i> Google Sheet sync</span><span><i class="fas fa-lock"></i> Session auto-expires</span></div></div>
+          <div class="aw-clock"><i class="far fa-clock"></i> <span id="admClock">--</span></div>
+        </div>
+        <div class="quick-acts">
+          <button class="qa" onclick="switchAdmSec('projects');openProjForm()"><i class="fas fa-plus"></i> New project</button>
+          <button class="qa" onclick="switchAdmSec('skills')"><i class="fas fa-star"></i> Edit skills</button>
+          <button class="qa" onclick="switchAdmSec('certs')"><i class="fas fa-certificate"></i> Certifications</button>
+          <button class="qa" onclick="document.getElementById('adminOv').classList.remove('show')"><i class="fas fa-up-right-from-square"></i> View site</button>
+        </div>
         <div class="stats-row" id="statsRow"></div>
         <div class="adm-card">
           <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:14px;font-size:15px;">Last 7 Days Visits</div>
@@ -1043,7 +1447,7 @@ footer{background:#05050a;border-top:1px solid var(--border);padding:45px 8%;dis
         <div class="adm-title"><i class="fas fa-users"></i> Visitor History</div>
         <div class="adm-card" style="overflow-x:auto">
           <table class="vis-tbl">
-            <thead><tr><th>#</th><th>Date &amp; Time</th><th>Browser</th><th>OS</th><th>Type</th></tr></thead>
+            <thead><tr><th><i class="fas fa-hashtag"></i></th><th><i class="far fa-clock"></i> Date &amp; Time</th><th><i class="fas fa-globe"></i> Browser</th><th><i class="fas fa-desktop"></i> OS</th><th><i class="fas fa-user-tag"></i> Type</th></tr></thead>
             <tbody id="visTbody"></tbody>
           </table>
         </div>
@@ -1052,6 +1456,7 @@ footer{background:#05050a;border-top:1px solid var(--border);padding:45px 8%;dis
       <!-- SKILLS -->
       <div class="adm-sec" id="s-skills">
         <div class="adm-title"><i class="fas fa-star"></i> Manage Skills</div>
+        <div class="sk-summary" id="skSummary"></div>
         <div class="adm-card">
           <div class="cat-title"><i class="fas fa-folder-plus"></i> Add a new skill category</div>
           <div class="cat-add">
@@ -1127,7 +1532,7 @@ const SYNC = { 'pf_skills':'saveSkills', 'pf_projects':'saveProjects', 'pf_certs
 // ═══════════════════════════════════════════════
 // ⬇️ Apps Script Web App URL এখানে paste করুন (…/exec দিয়ে শেষ হবে).
 //    এটা secret নয় — secret হলো ADMIN_KEY, যা শুধু Apps Script-এ থাকে।
-const API_URL = 'https://script.google.com/macros/s/AKfycbxcRR4zw0QktvYTTzS5RoOEdpByyIOCROlvTGKJXqmJLr8hXmTGQyVSW1N279ALyFT6/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbxhmz6RZve8QQ6xD4JZTXA_TlBqnRcYP9TrOwO5RZf5Fhp4HJHwegr9zrIRGtgKoSPy/exec';
 const SHEET_ON = /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(API_URL);
 const CACHE_KEY = 'pf_cache_v2';
 const KEY_NAME  = 'pf_akey';
@@ -1189,7 +1594,7 @@ function askKey(){
   return new Promise(res=>{
     keyResolve=res;
     document.getElementById('keyOv').classList.add('show');
-    setTimeout(()=>document.getElementById('keyInp').focus(),100);
+    otpShow(1); setTimeout(()=>document.getElementById('otpSend').focus(),100);
   });
 }
 function finishKey(ok){
@@ -1219,7 +1624,7 @@ async function flushSync(){
     showToast('⚠️ Google Sheet not connected — saved on this device only',true);
     return;
   }
-  if(!getKey()&&!(await askKey())){ showToast('Admin key required to save to the Sheet',true); return; }
+  if(!getKey()&&!(await askKey())){ showToast('Admin login required to save to the Sheet',true); return; }
   syncing=true;
   try{
     for(const k of ks){
@@ -1231,7 +1636,7 @@ async function flushSync(){
     showToast('☁️ Saved to Google Sheet');
   }catch(e){
     ks.forEach(k=>{ dirty[k]=true; });
-    showToast(e.message==='unauthorized'?'❌ Wrong admin key — change something to retry':e.message==='sharing_blocked'?'⚠️ Google Drive blocks public image links for this account — use a personal @gmail.com account for the Apps Script':'⚠️ Sheet save failed: '+e.message,true);
+    showToast(e.message==='unauthorized'?'❌ Session expired — sign in again, then change something to retry':e.message==='sharing_blocked'?'⚠️ Google Drive blocks public image links for this account — use a personal @gmail.com account for the Apps Script':'⚠️ Sheet save failed: '+e.message,true);
   }finally{ syncing=false; }
 }
 
@@ -1466,7 +1871,7 @@ const ICON_LIST = [
   'fas fa-tshirt','fas fa-warehouse','fas fa-boxes-stacked','fas fa-tag','fas fa-tags','fas fa-barcode',
   'fas fa-qrcode','fas fa-handshake','fas fa-truck','fas fa-shipping-fast','fas fa-clipboard-list',
   'fas fa-file-word','fas fa-file-excel','fas fa-file-powerpoint','fas fa-file-pdf','fas fa-file-alt',
-  'fas fa-chart-bar','fas fa-chart-line','fas fa-chart-pie','fas fa-poll','fas fa-analytics',
+  'fas fa-chart-bar','fas fa-chart-line','fas fa-chart-pie','fas fa-poll',
   'fas fa-palette','fas fa-pen-ruler','fas fa-pen-nib','fas fa-draw-polygon','fas fa-magic',
   'fas fa-camera','fas fa-video','fas fa-film','fas fa-microphone','fas fa-headphones',
   'fas fa-graduation-cap','fas fa-book','fas fa-book-open','fas fa-school','fas fa-university',
@@ -1481,7 +1886,24 @@ const ICON_LIST = [
   'fab fa-instagram','fab fa-youtube','fab fa-discord','fab fa-slack','fab fa-trello',
   'fas fa-paper-plane','fas fa-inbox','fas fa-comments','fas fa-comment-dots','fas fa-bell',
   'fas fa-fire','fas fa-bolt','fas fa-leaf','fas fa-earth-asia','fas fa-moon',
-  'fas fa-sun','fas fa-cloud-sun','fas fa-snowflake','fas fa-umbrella','fas fa-wind'
+  'fas fa-sun','fas fa-cloud-sun','fas fa-snowflake','fas fa-umbrella','fas fa-wind',
+  // — নতুন: টেক / সিকিউরিটি / RMG / অফিস —
+  'fab fa-docker','fab fa-aws','fab fa-java','fab fa-npm','fab fa-angular','fab fa-bootstrap',
+  'fab fa-sass','fab fa-figma','fab fa-android','fab fa-apple','fab fa-windows','fab fa-ubuntu',
+  'fab fa-raspberry-pi','fab fa-google','fab fa-microsoft','fab fa-gitlab','fab fa-jira','fab fa-stack-overflow',
+  'fab fa-chrome','fab fa-firefox','fab fa-redhat','fab fa-centos','fab fa-fedora','fab fa-golang',
+  'fab fa-rust','fab fa-swift','fab fa-laravel','fab fa-markdown','fab fa-bluetooth','fas fa-microscope',
+  'fas fa-flask','fas fa-scale-balanced','fas fa-gears','fas fa-diagram-project','fas fa-code-compare','fas fa-code-merge',
+  'fas fa-bug-slash','fas fa-user-shield','fas fa-shield-halved','fas fa-mask','fas fa-skull-crossbones','fas fa-binoculars',
+  'fas fa-magnifying-glass','fas fa-file-code','fas fa-chart-column','fas fa-chart-area','fas fa-industry','fas fa-boxes-packing',
+  'fas fa-box-open','fas fa-pallet','fas fa-dolly','fas fa-ruler-combined','fas fa-scissors','fas fa-clipboard-check',
+  'fas fa-calculator','fas fa-language','fas fa-pen-to-square','fas fa-table','fas fa-table-cells','fas fa-brain',
+  'fas fa-wand-magic-sparkles','fas fa-people-group','fas fa-bullseye','fas fa-lightbulb','fas fa-rocket','fas fa-gauge-high',
+  'fas fa-money-bill-wave','fas fa-file-invoice','fas fa-file-contract','fas fa-computer','fas fa-desktop','fas fa-keyboard',
+  'fas fa-print','fas fa-plug','fas fa-ethernet','fas fa-compass-drafting','fas fa-spider','fas fa-ghost',
+  'fas fa-circle-nodes','fas fa-sim-card','fas fa-tablet-screen-button','fas fa-headset','fas fa-link','fas fa-vector-square',
+  'fas fa-ruler','fas fa-swatchbook','fas fa-fill-drip','fas fa-pen','fas fa-image','fas fa-photo-film',
+  'fas fa-store','fas fa-cart-shopping'
 ];
 
 function initData(){
@@ -1685,23 +2107,20 @@ animateBg();
   }
   animateCursor();
 
-  function bindHover() {
-    document.querySelectorAll(
-      'a, button, .btn, .exp-card, .edu-card, .skill-card, .project-card, ' +
-      '.info-row, .chat-toggle-btn, .chat-input, .send-btn, .icon-item, ' +
-      '.adm-nb, .adm-logout, .add-btn, .e-btn, .d-btn, .sk-del, ' +
-      '.skill-adm-row, .stat-box, .login-submit, .login-close, ' +
-      '.pf-close, .save-btn, .tab-btn, .social-bar a, .cert-card, .ct-btn, .cert-adm-row'
-    ).forEach(function(el) {
-      el.addEventListener('mouseenter', function() { cursorOutline.classList.add('hovered'); });
-      el.addEventListener('mouseleave', function() { cursorOutline.classList.remove('hovered'); });
-    });
-  }
-
-  // Bind on load AND rebind whenever admin opens (dynamic elements)
-  window.addEventListener('load', bindHover);
-  // Re-bind every 2s to catch dynamically rendered admin elements
-  setInterval(bindHover, 2000);
+  // একটাই delegated listener — আগের কোড প্রতি ২ সেকেন্ডে সব এলিমেন্টে নতুন listener যোগ করত (জমতেই থাকত)
+  const HOVER_SEL =
+    'a, button, .btn, .exp-card, .edu-card, .skill-card, .project-card, ' +
+    '.info-row, .chat-toggle-btn, .chat-input, .send-btn, .icon-item, ' +
+    '.adm-nb, .adm-logout, .add-btn, .e-btn, .d-btn, .sk-del, ' +
+    '.skill-adm-row, .stat-box, .login-submit, .login-close, ' +
+    '.pf-close, .save-btn, .tab-btn, .social-bar a, .cert-card, .ct-btn, .cert-adm-row, ' +
+    '.sk-item, .sk-act, .sk-add-tile, .ic-pick button, .dlg-btn';
+  document.addEventListener('mouseover', function(e) {
+    cursorOutline.classList.toggle('hovered', !!(e.target.closest && e.target.closest(HOVER_SEL)));
+  });
+  document.addEventListener('mouseout', function(e) {
+    if (!e.relatedTarget) cursorOutline.classList.remove('hovered');
+  });
 })();
 
 // ═══════════════════════════════════════════════
@@ -2005,42 +2424,77 @@ function initChatWidget() {
 // ═══════════════════════════════════════════════
 // SKILLS RENDER
 // ═══════════════════════════════════════════════
+let skFilter='', skActive='';
+function srcOptions(v){ return [['','Not set'],['job','From job'],['self','Self-learning']].map(([k,l])=>`<option value="${k}" ${(v||'')===k?'selected':''}>${l}</option>`).join(''); }
+function certOptions(v){ return '<option value="">No certificate</option>'+(load(SK.certs)||[]).map(c=>`<option value="${esc(c.id)}" ${String(v||'')===String(c.id)?'selected':''}>${esc(c.title)}</option>`).join(''); }
+function skillTags(sk){
+  const cert=sk.cert&&(load(SK.certs)||[]).find(c=>String(c.id)===String(sk.cert)), curl=cert&&safeUrl(cert.url);
+  return (sk.source==='job'?'<span class="sk-src src-job"><i class="fas fa-briefcase"></i> From job</span>':sk.source==='self'?'<span class="sk-src src-self"><i class="fas fa-book-reader"></i> Self-learning</span>':'')
+    +(cert?`<a class="sk-cert" href="${curl?esc(curl):'#certifications'}" ${curl?'target="_blank" rel="noopener noreferrer"':''} title="${esc(cert.title)}"><i class="fas fa-certificate"></i> Certificate</a>`:'');
+}
 function lvlClass(l){ return l==='beginner'?'lvl-beginner':l==='intermediate'?'lvl-intermediate':'lvl-expert'; }
 function lvlLabel(l){ return l==='beginner'?'Beginner':l==='intermediate'?'Intermediate':'Expert'; }
+
+// ফিল্টার বদলালে কোনো ট্যাবে একটিও স্কিল না থাকলে ফাঁকা জায়গার বদলে বার্তা দেখায়
+function applySkFilter(){
+  const cont=document.getElementById('skillTabsContent'); if(!cont) return;
+  cont.dataset.filter=skFilter;
+  cont.querySelectorAll('.tab-panel').forEach(p=>{
+    const n=[...p.querySelectorAll('.skill-card')].filter(c=>!skFilter||c.dataset.src===skFilter).length;
+    const m=p.querySelector('.sk-filter-empty'); if(m) m.hidden=n>0;
+  });
+}
 
 function renderSkills(){
   const data=load(SK.skills)||DEFAULT_SKILLS;
   const nav=document.getElementById('skillTabsNav');
   const cont=document.getElementById('skillTabsContent');
   nav.innerHTML=''; cont.innerHTML='';
-  const cats=Object.keys(data);
+  // খালি ক্যাটাগরি সাইটে ফাঁকা ট্যাব হয়ে দেখাবে না (অ্যাডমিনে থাকে)
+  const cats=Object.keys(data).filter(c=>Array.isArray(data[c])&&data[c].length);
+  if(!cats.length){ cont.innerHTML='<p class="sk-none">Skills will appear here soon.</p>'; return; }
+  if(!cats.includes(skActive)) skActive=cats[0];          // রি-রেন্ডারে (ডাটা আপডেট/অ্যাডমিন এডিট) বর্তমান ট্যাব ধরে রাখে
   const catIcons=['fas fa-shield-alt','fas fa-code','fas fa-briefcase','fas fa-star'];
   cats.forEach((cat,i)=>{
-    const tid='sk-'+i;
+    const tid='sk-'+i, on=cat===skActive;
     const btn=document.createElement('button');
-    btn.className='tab-btn'+(i===0?' active':'');
+    btn.type='button';
+    btn.className='tab-btn'+(on?' active':'');
     btn.innerHTML=`<i class="${catIcons[i%catIcons.length]}"></i> ${esc(cat)}`;
     btn.addEventListener('click',()=>{
-      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+      skActive=cat;
+      nav.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      cont.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById(tid).classList.add('active');
     });
     nav.appendChild(btn);
     const panel=document.createElement('div');
-    panel.className='tab-panel'+(i===0?' active':'');
+    panel.className='tab-panel'+(on?' active':'');
     panel.id=tid;
     const grid=document.createElement('div');
     grid.className='skills-grid';
     data[cat].forEach(sk=>{
+      if(!sk||typeof sk!=='object') return;
       const c=document.createElement('div');
-      c.className='skill-card';
-      c.innerHTML=`<div class="skill-icon"><i class="${safeIcon(sk.icon,'fas fa-star')}"></i></div><div class="skill-name">${esc(sk.name)}</div><span class="skill-badge ${lvlClass(sk.level)}">${lvlLabel(sk.level)}</span>`;
+      c.className='skill-card'; c.dataset.src=sk.source||'';
+      const tags=skillTags(sk);
+      c.innerHTML=`<div class="skill-icon"><i class="${safeIcon(sk.icon,'fas fa-star')}"></i></div><div class="skill-name">${esc(sk.name)}</div><span class="skill-badge ${lvlClass(sk.level)}">${lvlLabel(sk.level)}</span>${tags?`<div class="sk-tags">${tags}</div>`:''}`;
       grid.appendChild(c);
     });
     panel.appendChild(grid);
+    const empty=document.createElement('p');
+    empty.className='sk-filter-empty'; empty.hidden=true; empty.textContent='No skills match this filter in this category.';
+    panel.appendChild(empty);
     cont.appendChild(panel);
   });
+  if(cats.some(c=>data[c].some(x=>x&&x.source))){
+    const f=document.createElement('div'); f.className='src-filter'; f.setAttribute('role','group'); f.setAttribute('aria-label','Filter skills');
+    f.innerHTML=[['','All skills','fa-layer-group'],['job','From job','fa-briefcase'],['self','Self-learning','fa-book-reader']].map(([v,l,i])=>`<button type="button" data-v="${v}" class="${skFilter===v?'on':''}"><i class="fas ${i}"></i> ${l}</button>`).join('');
+    f.addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; skFilter=b.dataset.v; f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); applySkFilter(); });
+    cont.prepend(f);
+  } else if(skFilter) skFilter='';                          // সোর্স-ট্যাগ আর কোথাও না থাকলে পুরোনো ফিল্টার ছেড়ে দেয়
+  applySkFilter();
 }
 
 // ═══════════════════════════════════════════════
@@ -2077,7 +2531,7 @@ async function adminLogin(){
   try{
     await api('login');                         // ভুল key হলে api() নিজেই key মুছে 'unauthorized' ছোঁড়ে
   }catch(e){
-    showToast(e.message==='unauthorized'?'❌ Wrong admin key':'⚠️ Could not reach the server',true);
+    showToast(e.message==='unauthorized'?'❌ Session expired. Click again to get a new OTP':'⚠️ Could not reach the server',true);
     return;
   }
   openAdmin();
@@ -2106,6 +2560,7 @@ function renderActiveAdm(){
 }
 function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 document.getElementById('admLogout').addEventListener('click',()=>{
+  api('logout').catch(()=>{});
   clearKey();
   document.getElementById('adminOv').classList.remove('show');
   document.getElementById('pfOv').classList.remove('show');
@@ -2175,123 +2630,286 @@ function renderVisitors(){
   }).join('');
 }
 
-// SKILLS ADMIN  (ক্যাটাগরি যোগ / নাম বদল / ক্রম / মুছা + স্কিল যোগ / মুছা / লেভেল)
-function skillCats(){ return Object.keys(load(SK.skills)||DEFAULT_SKILLS); }
-function afterSkillChange(msg){ renderSkills(); renderAdmSkills(); if(msg) showToast(msg); }
+// ═══════════════════════════════════════════════
+// SKILLS ADMIN
+//   ক্যাটাগরি : যোগ / নাম বদল / ক্রম / মুছা
+//   স্কিল      : যোগ / এডিট (নাম, আইকন, লেভেল, সোর্স, সার্টিফিকেট, ক্যাটাগরি) / ক্রম / মুছা
+// ═══════════════════════════════════════════════
+const byId=id=>document.getElementById(id);
+const SK_LEVELS=['beginner','intermediate','expert'];
+// Object.prototype-এর নাম (__proto__, constructor, toString …) ক্যাটাগরি নাম হলে ডাটা ভেঙে যায় → আটকানো হয়
+const SK_BAD_NAMES=new Set(Object.getOwnPropertyNames(Object.prototype).map(s=>s.toLowerCase()));
+const SK_ICON_FMT=/^(fa[srbl]?|fa-solid|fa-regular|fa-brands)\s+fa-[a-z0-9-]+(\s+fa-[a-z0-9-]+)*$/;
 
-function renderAdmSkills(){
-  const skills=load(SK.skills)||DEFAULT_SKILLS;
-  const wrap=document.getElementById('skillAdmWrap');
-  wrap.innerHTML='';
-  const cats=Object.keys(skills);
-  if(!cats.length){
-    wrap.innerHTML='<div class="adm-card" style="text-align:center;color:var(--muted)">No categories yet — add one above.</div>';
-    return;
-  }
-  cats.forEach((cat,ci)=>{
-    const div=document.createElement('div');
-    div.className='adm-card';
-    div.innerHTML=`<div class="cat-title"><i class="fas fa-folder-open"></i><span class="ct-name">${esc(cat)}</span>
-        <div class="cat-tools">
-          <button class="ct-btn" data-act="up" title="Move up" ${ci===0?'disabled':''}><i class="fas fa-arrow-up"></i></button>
-          <button class="ct-btn" data-act="down" title="Move down" ${ci===cats.length-1?'disabled':''}><i class="fas fa-arrow-down"></i></button>
-          <button class="ct-btn" data-act="rename" title="Rename category"><i class="fas fa-pen"></i></button>
-          <button class="ct-btn danger" data-act="delcat" title="Delete category"><i class="fas fa-trash"></i></button>
-        </div></div>
-      <div class="skill-adm-grid"></div>
-      <div class="sk-add-form"><div class="fg"><label class="flbl">Skill Name</label><input class="finp" data-f="name" maxlength="80" placeholder="e.g. React"></div><div class="fg"><label class="flbl">Icon Class <a href="#" data-act="icons" style="color:var(--primary);font-size:11px;margin-left:5px;">Browse Icons</a></label><input class="finp" data-f="icon" maxlength="60" placeholder="fas fa-star"></div><div class="fg"><label class="flbl">Level</label><select class="fsel" data-f="level"><option value="beginner">Beginner</option><option value="intermediate">Intermediate</option><option value="expert">Expert</option></select></div><div><button class="add-btn" data-act="addskill"><i class="fas fa-plus"></i> Add</button></div></div>`;
-    wrap.appendChild(div);
-    const g=div.querySelector('.skill-adm-grid');
-    skills[cat].forEach((sk,idx)=>{
-      const row=document.createElement('div');
-      row.className='skill-adm-row';
-      row.innerHTML=`<div class="sk-ico-preview"><i class="${safeIcon(sk.icon,'fas fa-star')}"></i></div><div class="sk-info"><div class="sk-name">${esc(sk.name)}</div><select class="sk-lvl-sel" data-act="lvl" data-i="${idx}"><option value="beginner" ${sk.level==='beginner'?'selected':''}>Beginner</option><option value="intermediate" ${sk.level==='intermediate'?'selected':''}>Intermediate</option><option value="expert" ${sk.level==='expert'?'selected':''}>Expert</option></select></div><button class="sk-del" data-act="delskill" data-i="${idx}"><i class="fas fa-trash"></i></button>`;
-      g.appendChild(row);
-    });
-    div.dataset.ci=ci;
+function skData(){ return load(SK.skills)||DEFAULT_SKILLS; }
+function skillCats(){ return Object.keys(skData()); }
+function afterSkillChange(msg){ renderSkills(); renderAdmSkills(); if(msg) showToast(msg); }
+function cleanCatName(v){ return String(v||'').replace(/\s+/g,' ').trim().slice(0,40); }
+function catNameError(raw,skip){
+  const name=cleanCatName(raw);
+  if(!name) return 'Please enter a category name';
+  if(SK_BAD_NAMES.has(name.toLowerCase())||/^\d+$/.test(name)) return 'This name is not allowed (reserved word or numbers only) — please use a descriptive name';
+  if(skillCats().some((k,i)=>i!==skip&&k.toLowerCase()===name.toLowerCase())) return 'That category already exists';
+  return '';
+}
+
+// ── In-page confirm / prompt (native confirm()/prompt()-এর বদলে — কাস্টম কার্সর ও থিমের সাথে মানানসই) ──
+let dlgPending=null;
+function dlgAsk(o){
+  return new Promise(resolve=>{
+    if(dlgPending) dlgPending();                                   // আগের ডায়ালগ খোলা থাকলে বাতিল
+    const ov=byId('dlgOv'), box=byId('dlgBox'), inp=byId('dlgInp'), err=byId('dlgErr'), ok=byId('dlgOk'), no=byId('dlgCancel');
+    const cancelVal=o.input?null:false;
+    box.classList.toggle('danger',!!o.danger);
+    byId('dlgIcon').className=o.icon||(o.danger?'fas fa-triangle-exclamation':o.input?'fas fa-pen':'fas fa-circle-question');
+    byId('dlgTitle').textContent=o.title||'';
+    byId('dlgMsg').textContent=o.msg||'';
+    ok.textContent=o.ok||'OK'; no.textContent=o.cancel||'Cancel';
+    err.textContent=''; inp.hidden=!o.input;
+    if(o.input){ inp.value=o.input.value||''; inp.maxLength=o.input.max||60; inp.placeholder=o.input.placeholder||''; }
+    function finish(v){
+      document.removeEventListener('keydown',onKey,true);
+      ov.classList.remove('show'); ov.onclick=ok.onclick=no.onclick=null; dlgPending=null;
+      resolve(v);
+    }
+    function submit(){
+      if(!o.input) return finish(true);
+      const msg=o.input.validate?o.input.validate(inp.value):'';
+      if(msg){ err.textContent=msg; inp.focus(); return; }
+      finish(inp.value);
+    }
+    function onKey(e){
+      if(e.key==='Escape'){ e.preventDefault(); e.stopPropagation(); finish(cancelVal); }
+      else if(e.key==='Enter'&&o.input&&document.activeElement===inp){ e.preventDefault(); e.stopPropagation(); submit(); }
+    }
+    dlgPending=()=>finish(cancelVal);
+    ok.onclick=submit; no.onclick=()=>finish(cancelVal);
+    ov.onclick=e=>{ if(e.target===ov) finish(cancelVal); };
+    document.addEventListener('keydown',onKey,true);
+    ov.classList.add('show');
+    setTimeout(()=>{ const f=o.input?inp:(o.danger?no:ok); f.focus(); if(o.input) f.select(); },30);
   });
 }
 
-// एक ही listener — ক্যাটাগরির নাম কখনো onclick="" স্ট্রিংয়ে যায় না (যেকোনো নাম/ভাষা নিরাপদ)
-document.getElementById('skillAdmWrap').addEventListener('click',e=>{
-  const t=e.target.closest('[data-act]'); if(!t) return;
-  const card=t.closest('.adm-card'); if(!card||card.dataset.ci==null) return;
-  const ci=+card.dataset.ci, cats=skillCats(), cat=cats[ci], act=t.dataset.act;
-  if(act==='icons'){ e.preventDefault(); document.querySelector('[data-s=icons]').click(); }
-  else if(act==='addskill') addSkill(ci,card);
-  else if(act==='delskill') delSkill(ci,+t.dataset.i);
+// ── Admin list render ──
+function renderAdmSkills(){
+  const skills=skData(), wrap=byId('skillAdmWrap'), body=document.querySelector('.admin-body');
+  const keep=body?body.scrollTop:0;                                // সম্পাদনার পর স্ক্রল যেন উপরে লাফিয়ে না যায়
+  const cats=Object.keys(skills), certs=load(SK.certs)||[];
+  let total=0; const lv={beginner:0,intermediate:0,expert:0};
+  cats.forEach(c=>(Array.isArray(skills[c])?skills[c]:[]).forEach(s=>{ total++; if(lv[s.level]!=null) lv[s.level]++; }));
+  byId('skSummary').innerHTML=
+    `<span class="sk-chip"><i class="fas fa-folder-open"></i><b>${cats.length}</b> categories</span>`
+   +`<span class="sk-chip"><i class="fas fa-star"></i><b>${total}</b> skills</span>`
+   +`<span class="sk-chip"><span class="sd e"></span><b>${lv.expert}</b> expert</span>`
+   +`<span class="sk-chip"><span class="sd i"></span><b>${lv.intermediate}</b> intermediate</span>`
+   +`<span class="sk-chip"><span class="sd b"></span><b>${lv.beginner}</b> beginner</span>`;
+  wrap.innerHTML='';
+  if(!cats.length){
+    wrap.innerHTML='<div class="adm-card sk-none-card"><i class="fas fa-folder-plus" style="font-size:26px;color:var(--primary);display:block;margin-bottom:10px"></i>No categories yet — add one above.</div>';
+    return;
+  }
+  cats.forEach((cat,ci)=>{
+    const list=Array.isArray(skills[cat])?skills[cat]:[];
+    const sec=document.createElement('section');
+    sec.className='adm-card sk-cat'; sec.dataset.ci=ci;
+    const items=list.map((sk,i)=>{
+      const cert=sk.cert&&certs.find(c=>String(c.id)===String(sk.cert));
+      const ct=cert?String(cert.title||''):'';
+      const src=sk.source==='job'?'<span class="sk-src src-job"><i class="fas fa-briefcase"></i> From job</span>'
+               :sk.source==='self'?'<span class="sk-src src-self"><i class="fas fa-book-reader"></i> Self-learning</span>':'';
+      const crt=cert?`<span class="sk-cert" title="${esc(ct)}"><i class="fas fa-certificate"></i> ${esc(ct.length>22?ct.slice(0,21)+'…':ct)}</span>`:'';
+      return `<div class="sk-item" data-i="${i}">
+        <div class="sk-ico-preview"><i class="${safeIcon(sk.icon,'fas fa-star')}"></i></div>
+        <div class="sk-main"><div class="sk-nm">${esc(sk.name)}</div><div class="sk-meta"><span class="skill-badge ${lvlClass(sk.level)}">${lvlLabel(sk.level)}</span>${src}${crt}</div></div>
+        <div class="sk-acts">
+          <button type="button" class="sk-act" data-act="sup" title="Move up" aria-label="Move up" ${i===0?'disabled':''}><i class="fas fa-arrow-up"></i></button>
+          <button type="button" class="sk-act" data-act="sdown" title="Move down" aria-label="Move down" ${i===list.length-1?'disabled':''}><i class="fas fa-arrow-down"></i></button>
+          <button type="button" class="sk-act" data-act="sedit" title="Edit skill" aria-label="Edit skill"><i class="fas fa-pen"></i></button>
+          <button type="button" class="sk-act danger" data-act="sdel" title="Delete skill" aria-label="Delete skill"><i class="fas fa-trash"></i></button>
+        </div></div>`;
+    }).join('');
+    sec.innerHTML=`<header class="sk-cat-h"><span class="sk-cat-ico"><i class="fas fa-folder-open"></i></span>
+        <div class="sk-cat-t"><h4>${esc(cat)}</h4><span>${list.length} skill${list.length===1?'':'s'}${list.length?'':' — empty categories stay hidden on your site'}</span></div>
+        <div class="cat-tools">
+          <button type="button" class="ct-btn" data-act="up" title="Move category up" aria-label="Move category up" ${ci===0?'disabled':''}><i class="fas fa-arrow-up"></i></button>
+          <button type="button" class="ct-btn" data-act="down" title="Move category down" aria-label="Move category down" ${ci===cats.length-1?'disabled':''}><i class="fas fa-arrow-down"></i></button>
+          <button type="button" class="ct-btn" data-act="rename" title="Rename category" aria-label="Rename category"><i class="fas fa-pen"></i></button>
+          <button type="button" class="ct-btn danger" data-act="delcat" title="Delete category" aria-label="Delete category"><i class="fas fa-trash"></i></button>
+        </div></header>
+      <div class="sk-list">${items}<button type="button" class="sk-add-tile" data-act="sadd"><i class="fas fa-plus"></i> Add skill</button></div>`;
+    wrap.appendChild(sec);
+  });
+  if(body) body.scrollTop=keep;
+}
+
+// একটাই listener — নাম কখনো onclick="" স্ট্রিংয়ে যায় না (যেকোনো নাম/ভাষা নিরাপদ)
+byId('skillAdmWrap').addEventListener('click',e=>{
+  const t=e.target.closest('[data-act]'); if(!t||t.disabled) return;
+  const card=t.closest('.sk-cat'); if(!card) return;
+  const ci=+card.dataset.ci, act=t.dataset.act, item=t.closest('.sk-item'), i=item?+item.dataset.i:null;
+  if(act==='sadd') openSkillModal(ci,null);
+  else if(act==='sedit') openSkillModal(ci,i);
+  else if(act==='sdel') delSkill(ci,i);
+  else if(act==='sup') moveSkill(ci,i,-1);
+  else if(act==='sdown') moveSkill(ci,i,1);
   else if(act==='rename') renameCat(ci);
   else if(act==='delcat') delCat(ci);
   else if(act==='up') moveCat(ci,-1);
   else if(act==='down') moveCat(ci,1);
 });
-document.getElementById('skillAdmWrap').addEventListener('change',e=>{
-  const t=e.target; if(t.dataset.act!=='lvl') return;
-  const card=t.closest('.adm-card'); changeSkLvl(+card.dataset.ci,+t.dataset.i,t.value);
-});
 
-function cleanCatName(v){ return String(v||'').replace(/\s+/g,' ').trim().slice(0,40); }
+// ── Category actions ──
 function addCat(){
-  const inp=document.getElementById('newCatName');
-  const name=cleanCatName(inp.value);
-  if(!name) return showToast('Please enter a category name',true);
-  const skills=load(SK.skills)||DEFAULT_SKILLS;
-  if(Object.keys(skills).some(k=>k.toLowerCase()===name.toLowerCase())) return showToast('That category already exists',true);
+  const inp=byId('newCatName');
+  const msg=catNameError(inp.value,-1);
+  if(msg) return showToast(msg,true);
+  const name=cleanCatName(inp.value), skills=skData();
   skills[name]=[]; save(SK.skills,skills); inp.value='';
   afterSkillChange('✅ Category added!');
 }
-function renameCat(ci){
-  const skills=load(SK.skills)||DEFAULT_SKILLS, cats=Object.keys(skills), old=cats[ci];
-  const input=prompt('Rename category:',old); if(input===null) return;
+async function renameCat(ci){
+  const old=skillCats()[ci]; if(old==null) return;
+  const input=await dlgAsk({title:'Rename category',ok:'Rename',input:{value:old,max:40,placeholder:'Category name',validate:v=>catNameError(v,ci)}});
+  if(input===null) return;
   const name=cleanCatName(input);
-  if(!name) return showToast('Name cannot be empty',true);
   if(name===old) return;
-  if(cats.some((k,i)=>i!==ci&&k.toLowerCase()===name.toLowerCase())) return showToast('That category already exists',true);
+  const skills=skData(), cats=Object.keys(skills);
+  if(cats[ci]!==old) return;                                       // ডায়ালগ খোলা থাকার সময় ডাটা বদলে গেলে থামো
   const next={}; cats.forEach(k=>{ next[k===old?name:k]=skills[k]; });   // ক্রম ঠিক রেখে নাম বদলায়
   save(SK.skills,next); afterSkillChange('✅ Category renamed!');
 }
 function moveCat(ci,d){
-  const skills=load(SK.skills)||DEFAULT_SKILLS, cats=Object.keys(skills), j=ci+d;
+  const skills=skData(), cats=Object.keys(skills), j=ci+d;
   if(j<0||j>=cats.length) return;
   [cats[ci],cats[j]]=[cats[j],cats[ci]];
   const next={}; cats.forEach(k=>{ next[k]=skills[k]; });
   save(SK.skills,next); afterSkillChange();
 }
-function delCat(ci){
-  const skills=load(SK.skills)||DEFAULT_SKILLS, cat=Object.keys(skills)[ci], n=(skills[cat]||[]).length;
-  if(!confirm('Delete category "'+cat+'"'+(n?' and its '+n+' skill'+(n>1?'s':''):'')+'? This cannot be undone.')) return;
+async function delCat(ci){
+  const cat=skillCats()[ci]; if(cat==null) return;
+  const n=(skData()[cat]||[]).length;
+  const yes=await dlgAsk({title:'Delete category?',danger:true,ok:'Delete',msg:'“'+cat+'”'+(n?' and its '+n+' skill'+(n>1?'s':''):'')+' will be removed. This cannot be undone.'});
+  if(!yes) return;
+  const skills=skData(); if(Object.keys(skills)[ci]!==cat) return;
   delete skills[cat]; save(SK.skills,skills);
   afterSkillChange('Category deleted.');
 }
-document.getElementById('addCatBtn').addEventListener('click',addCat);
-document.getElementById('newCatName').addEventListener('keypress',e=>{ if(e.key==='Enter') addCat(); });
 
-function addSkill(ci,card){
-  const f=n=>card.querySelector('[data-f='+n+']');
-  const name=f('name').value.trim();
-  const icon=safeIcon(f('icon').value,'fas fa-star');
-  const level=f('level').value;
-  if(!name) return showToast('Please enter a skill name',true);
-  const skills=load(SK.skills)||DEFAULT_SKILLS, cat=Object.keys(skills)[ci];
-  skills[cat].push({name:name.slice(0,80),icon,level});
-  save(SK.skills,skills);
-  afterSkillChange('✅ Skill added!');
+// ── Skill actions ──
+function moveSkill(ci,i,d){
+  const skills=skData(), list=skills[Object.keys(skills)[ci]], j=i+d;
+  if(!list||j<0||j>=list.length) return;
+  [list[i],list[j]]=[list[j],list[i]];
+  save(SK.skills,skills); afterSkillChange();
 }
-
-function delSkill(ci,idx){
-  const skills=load(SK.skills)||DEFAULT_SKILLS, cat=Object.keys(skills)[ci];
-  skills[cat].splice(idx,1);
-  save(SK.skills,skills);
+async function delSkill(ci,i){
+  const cat=skillCats()[ci], sk=((skData()[cat])||[])[i]; if(!sk) return;
+  const yes=await dlgAsk({title:'Delete skill?',danger:true,ok:'Delete',msg:'“'+sk.name+'” will be removed from “'+cat+'”.'});
+  if(!yes) return;
+  const skills=skData(), list=skills[cat], k=list?list.indexOf(sk):-1;
+  if(k<0) return;
+  list.splice(k,1); save(SK.skills,skills);
   afterSkillChange('Skill deleted.');
 }
-
-function changeSkLvl(ci,idx,lvl){
-  const skills=load(SK.skills)||DEFAULT_SKILLS, cat=Object.keys(skills)[ci];
-  skills[cat][idx].level=lvl;
-  save(SK.skills,skills);
-  renderSkills();
-  showToast('✅ Level updated!');
+// সার্টিফিকেট মুছলে স্কিলে ঝুলে থাকা রেফারেন্স সাফ করে
+function unlinkCertFromSkills(id){
+  const skills=skData(); let n=0;
+  Object.keys(skills).forEach(c=>(skills[c]||[]).forEach(s=>{ if(s&&String(s.cert||'')===String(id)){ s.cert=''; n++; } }));
+  if(n) save(SK.skills,skills);
 }
+
+// ── Skill editor (add / edit) ──
+let skEdit=null, skLevel='beginner';
+function iconExists(cls){                                          // আইকনটি সত্যিই Font Awesome-এ আছে কিনা (CSS থেকে যাচাই)
+  try{
+    const i=document.createElement('i'); i.className=cls; i.style.cssText='position:absolute;left:-9999px;visibility:hidden';
+    document.body.appendChild(i);
+    const c=getComputedStyle(i,'::before').content; i.remove();
+    return !!c&&c!=='none'&&c!=='normal'&&c!=='""';
+  }catch(e){ return true; }
+}
+function skIconError(v){
+  if(!SK_ICON_FMT.test(v)||!ICON_RE.test(v)) return 'Icon must look like “fas fa-star” or “fab fa-github”';
+  if(iconExists('fas fa-star')&&!iconExists(v)) return 'That icon does not exist in Font Awesome — pick one from the list below';
+  return '';
+}
+function buildIconPick(q){
+  const box=byId('skmPick'), cur=byId('skmIcon').value.trim().toLowerCase();
+  q=(q||'').trim().toLowerCase();
+  const list=q?ICON_LIST.filter(ic=>ic.includes(q)):ICON_LIST;
+  box.innerHTML=list.length
+    ?list.map(ic=>`<button type="button" data-ic="${ic}" title="${ic}" class="${ic===cur?'on':''}"><i class="${ic}"></i></button>`).join('')
+    :'<div class="ic-none">No match in the list — a valid custom class will still work</div>';
+}
+function skIconSync(filter){
+  const v=byId('skmIcon').value.trim().toLowerCase().replace(/\s+/g,' '), prev=byId('skmPrev');
+  const msg=v?skIconError(v):'';
+  prev.classList.toggle('bad',!!msg);
+  prev.firstElementChild.className=msg?'fas fa-question':(v||'fas fa-star');
+  buildIconPick(filter?v:'');
+}
+function setSkLevel(v){
+  skLevel=SK_LEVELS.includes(v)?v:'beginner';
+  byId('skmLvl').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===skLevel)));
+}
+function openSkillModal(ci,i){
+  const skills=skData(), cats=Object.keys(skills), cat=cats[ci]; if(cat==null) return;
+  const sk=i==null?null:(skills[cat]||[])[i];
+  if(i!=null&&!sk) return;
+  skEdit={ci,i:sk?i:null};
+  byId('skmTitle').textContent=sk?'Edit skill':'Add skill';
+  byId('skmName').value=sk?sk.name:'';
+  byId('skmCat').innerHTML=cats.map((c,k)=>`<option value="${k}" ${k===ci?'selected':''}>${esc(c)}</option>`).join('');
+  byId('skmIcon').value=sk?(sk.icon||''):'fas fa-star';
+  setSkLevel(sk?sk.level:'beginner');
+  byId('skmSrc').innerHTML=srcOptions(sk?sk.source:'');
+  byId('skmCert').innerHTML=certOptions(sk?sk.cert:'');
+  byId('skmErr').textContent='';
+  byId('skmPick').scrollTop=0;
+  skIconSync(false);
+  byId('skOv').classList.add('show');
+  setTimeout(()=>byId('skmName').focus(),40);
+}
+function closeSkillModal(){ byId('skOv').classList.remove('show'); skEdit=null; }
+function saveSkillModal(){
+  if(!skEdit) return;
+  const err=m=>{ byId('skmErr').textContent=m; };
+  const name=byId('skmName').value.replace(/\s+/g,' ').trim().slice(0,80);
+  if(!name){ err('Please enter a skill name'); byId('skmName').focus(); return; }
+  let icon=byId('skmIcon').value.trim().toLowerCase().replace(/\s+/g,' ');
+  if(!icon) icon='fas fa-star';
+  const iconMsg=skIconError(icon);
+  if(iconMsg){ err(iconMsg); byId('skmIcon').focus(); return; }
+  const skills=skData(), cats=Object.keys(skills), toCi=+byId('skmCat').value, toCat=cats[toCi];
+  if(toCat==null){ err('Please choose a category'); return; }
+  const fromCat=cats[skEdit.ci], isNew=skEdit.i==null;
+  const dup=(skills[toCat]||[]).some((s,k)=>String(s.name).toLowerCase()===name.toLowerCase()&&!(!isNew&&toCat===fromCat&&k===skEdit.i));
+  if(dup){ err('“'+name+'” already exists in “'+toCat+'”'); byId('skmName').focus(); return; }
+  const item={name,icon,level:skLevel,source:byId('skmSrc').value,cert:byId('skmCert').value};
+  if(isNew) skills[toCat].push(item);
+  else if(toCat===fromCat) skills[fromCat][skEdit.i]=item;
+  else { skills[fromCat].splice(skEdit.i,1); skills[toCat].push(item); }   // অন্য ক্যাটাগরিতে সরানো
+  save(SK.skills,skills);
+  closeSkillModal();
+  afterSkillChange(isNew?'✅ Skill added!':'✅ Skill updated!');
+}
+byId('skmClose').addEventListener('click',closeSkillModal);
+byId('skOv').addEventListener('mousedown',e=>{ if(e.target.id==='skOv') closeSkillModal(); });
+byId('skmSave').addEventListener('click',saveSkillModal);
+byId('skmLvl').addEventListener('click',e=>{ const b=e.target.closest('button[data-v]'); if(b) setSkLevel(b.dataset.v); });
+byId('skmIcon').addEventListener('input',()=>{ byId('skmErr').textContent=''; skIconSync(true); });
+byId('skmName').addEventListener('input',()=>{ byId('skmErr').textContent=''; });
+byId('skmPick').addEventListener('click',e=>{
+  const b=e.target.closest('button[data-ic]'); if(!b) return;
+  byId('skmIcon').value=b.dataset.ic; byId('skmErr').textContent=''; skIconSync(false);
+});
+['skmName','skmIcon'].forEach(id=>byId(id).addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); saveSkillModal(); } }));
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&byId('skOv').classList.contains('show')&&!byId('dlgOv').classList.contains('show')) closeSkillModal();
+});
+byId('addCatBtn').addEventListener('click',addCat);
+byId('newCatName').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); addCat(); } });
 
 // CERTIFICATIONS ADMIN
 function renderAdmCerts(){
@@ -2316,14 +2934,14 @@ function renderAdmCerts(){
     box.appendChild(row);
   });
 }
-function afterCertChange(msg){ renderCerts(); renderAdmCerts(); if(msg) showToast(msg); }
+function afterCertChange(msg){ renderCerts(); renderSkills(); renderAdmCerts(); if(msg) showToast(msg); }
 document.getElementById('certAdmList').addEventListener('click',e=>{
   const t=e.target.closest('[data-act]'); if(!t) return;
   const i=+t.dataset.i, list=load(SK.certs)||[], act=t.dataset.act;
   if(act==='edit') openCertForm(list[i],i);
   else if(act==='del'){
     if(!confirm('Delete "'+list[i].title+'"?')) return;
-    list.splice(i,1); save(SK.certs,list); afterCertChange('Certification deleted.');
+    const gone=list[i]; list.splice(i,1); save(SK.certs,list); if(gone) unlinkCertFromSkills(gone.id); afterCertChange('Certification deleted.');
   }
   else if(act==='up'||act==='down'){
     const j=act==='up'?i-1:i+1; if(j<0||j>=list.length) return;
@@ -2501,29 +3119,73 @@ function renderIconArchive(){
 document.getElementById('iconSearch').addEventListener('input',renderIconArchive);
 
 // TOAST
+let toastTimer=null;
 function showToast(msg,isErr=false){
   const t=document.getElementById('toast');
   document.getElementById('toastTxt').textContent=msg;
   t.className='toast'+(isErr?' err':'');
   t.querySelector('i').className=isErr?'fas fa-times-circle':'fas fa-check-circle';
   t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
 }
 
 // ═══════════════════════════════════════════════
 // BOOTSTRAP
 // ═══════════════════════════════════════════════
-// Admin key modal (Sheet write access)
-function submitKey(){
-  const v=document.getElementById('keyInp').value.trim();
-  if(!v) return;
-  setKey(v,document.getElementById('keyRemember').checked);
-  document.getElementById('keyInp').value='';
-  finishKey(true);
+// Admin OTP login (Telegram) — code is created & verified on the server (Apps Script)
+let otpTimer=null;
+const $=id=>document.getElementById(id);
+function otpShow(n){ $('otpStep1').hidden=n!==1; $('otpStep2').hidden=n!==2; }
+function otpFx(cls){ const b=$('otpBox'); b.classList.remove('shake','ok'); void b.offsetWidth; b.classList.add(cls); }
+function otpCooldown(sec){
+  clearInterval(otpTimer); const b=$('otpResend'); let left=sec; b.disabled=true;
+  const tick=()=>{ if(left<=0){ clearInterval(otpTimer); b.disabled=false; b.textContent='Resend code'; return; } b.textContent='Resend in '+left+'s'; left--; };
+  tick(); otpTimer=setInterval(tick,1000);
 }
-document.getElementById('keyBtn').addEventListener('click',submitKey);
-document.getElementById('keyInp').addEventListener('keypress',e=>{ if(e.key==='Enter') submitKey(); });
-document.getElementById('keyClose').addEventListener('click',()=>finishKey(false));
+function otpErr(e){
+  const m={rate_limited:'Too many requests. Wait a few minutes and try again.',telegram_error:'Could not send to Telegram. Run checkTelegram() in Apps Script to test the bot.',otp_unavailable:'Telegram is not configured on the server (TG_TOKEN / TG_CHAT_ID).',otp_invalid:'Wrong code. Check Telegram and try again.',otp_expired:'Code expired. Request a new one.'};
+  showToast(m[e.message]||'OTP login is not set up on the server yet, or it is unreachable.',true);
+}
+async function otpSend(){
+  const b=$('otpSend'); b.disabled=true;
+  try{ await api('otp_request'); otpShow(2); otpCooldown(30); showToast('OTP sent to Telegram'); setTimeout(()=>$('keyInp').focus(),150); }
+  catch(e){ otpFx('shake'); otpErr(e); }
+  finally{ b.disabled=false; }
+}
+async function submitKey(){
+  const code=$('keyInp').value.replace(/\D/g,'');
+  if(code.length!==6){ otpFx('shake'); showToast('Enter the 6-digit code',true); return; }
+  $('keyBtn').disabled=true;
+  try{
+    const d=await api('otp_verify',{otp:code});
+    setKey(d.token,$('keyRemember').checked);
+    $('keyInp').value=''; otpFx('ok'); showToast('Signed in');
+    setTimeout(()=>finishKey(true),450);
+  }catch(e){
+    otpFx('shake'); otpErr(e); $('keyInp').select();
+    if(e.message==='otp_expired'){ $('keyInp').value=''; otpShow(1); }
+  }finally{ $('keyBtn').disabled=false; }
+}
+$('otpSend').addEventListener('click',otpSend);
+$('otpResend').addEventListener('click',otpSend);
+$('keyBtn').addEventListener('click',submitKey);
+$('keyInp').addEventListener('keypress',e=>{ if(e.key==='Enter') submitKey(); });
+$('keyClose').addEventListener('click',()=>finishKey(false));
+
+// Admin dashboard: live clock + animated stat counters
+setInterval(()=>{ const c=$('admClock'); if(c&&$('adminOv').classList.contains('show')) c.textContent=new Date().toLocaleString('en-GB',{weekday:'short',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',second:'2-digit'}); },1000);
+const _renderOverview=renderOverview, _lastStat={};
+renderOverview=function(){
+  _renderOverview();
+  const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  document.querySelectorAll('#statsRow .stat-box-n').forEach((el,i)=>{
+    const to=+el.textContent||0, from=_lastStat[i]||0; _lastStat[i]=to;
+    if(calm||from===to) return;
+    const t0=performance.now();
+    (function f(t){ const p=Math.min(1,(t-t0)/700); el.textContent=Math.round(from+(to-from)*(1-Math.pow(1-p,3))); if(p<1) requestAnimationFrame(f); })(t0);
+  });
+};
 
 // ═══════════════════════════════════════════════
 // HACKER LAYER (visual only — no data, no network)
@@ -2532,6 +3194,27 @@ try{
   console.log('%c\n ___    _     _____ __  __  ___  _   _\n|_ _|  / \\   | ____|  \\/  |/ _ \\| \\ | |\n | |  / _ \\  |  _| | |\\/| | | | |  \\| |\n | | / ___ \\ | |___| |  | | |_| | |\\  |\n|___/_/   \\_\\|_____|_|  |_|\\___/|_| \\_|\n','color:#00ff41;font-family:monospace;font-weight:bold');
   console.log('%c> Looking under the hood? Nice. Hire me instead: iaemon28@gmail.com','color:#00d4aa;font-family:monospace;font-size:13px');
 }catch(e){}
+
+// ═══════════════════════════════════════════════
+// FOOTER: Dhaka live clock + "Chat now" button
+// ═══════════════════════════════════════════════
+(function(){
+  const box=document.getElementById('ftClock');
+  if(box){
+    const tEl=box.querySelector('.t'), dEl=box.querySelector('.d');
+    try{
+      const tf=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Dhaka',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+      const df=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Dhaka',weekday:'short',day:'2-digit',month:'short'});
+      const tick=()=>{ const n=new Date(); tEl.textContent=tf.format(n); dEl.textContent='Dhaka · '+df.format(n); };
+      tick(); setInterval(tick,1000);
+    }catch(e){ box.hidden=true; }
+  }
+  const chat=document.getElementById('ftChat');
+  if(chat) chat.addEventListener('click',()=>{
+    const w=document.getElementById('chatWindow');
+    if(!w||!w.classList.contains('visible')) document.getElementById('chatToggleBtn').click();   // খোলা থাকলে আবার বন্ধ করবে না
+  });
+})();
 
 initData();
 trackVisitor();
