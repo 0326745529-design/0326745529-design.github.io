@@ -336,6 +336,12 @@ section{padding:120px 8%;position:relative;z-index:1;}
 .cert-id{font-size:12px;color:var(--muted);word-break:break-all;}
 .cert-link{margin-top:auto;padding-top:14px;display:inline-flex;align-items:center;gap:8px;color:var(--primary);font-weight:700;font-size:13px;text-decoration:none;}
 .cert-link:hover{text-decoration:underline;}
+/* Certificate hover: smooth zoom-in so the credential is easier to read (mouse devices only) */
+@media (hover:hover) and (pointer:fine){
+  .cert-card.reveal{transform-origin:center;will-change:transform;transition:transform .5s cubic-bezier(.22,.8,.3,1),border-color .3s ease,box-shadow .5s ease;}
+  .cert-card.reveal:hover,.cert-card.reveal:focus-within{transform:translateY(-6px) scale(1.08);z-index:5;border-color:var(--primary);box-shadow:0 28px 60px rgba(0,0,0,.55),0 0 36px rgba(0,212,170,.18);}
+}
+@media (prefers-reduced-motion:reduce){.cert-card.reveal:hover,.cert-card.reveal:focus-within{transform:none;}}
 
 /* ── SKILLS ── */
 .bg-shape{position:absolute;border-radius:50%;filter:blur(100px);z-index:-1;opacity:0.3;}
@@ -349,6 +355,33 @@ section{padding:120px 8%;position:relative;z-index:1;}
 .tab-panel.active{display:block;}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;}
 .skill-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 20px;text-align:center;transition:var(--transition);position:relative;overflow:hidden;}
+.skill-card:focus{outline:2px solid var(--primary);outline-offset:3px;}
+/* ── SKILL HOVER POPOVER (certificates + work experience, shown separately) ── */
+.sk-pop{position:fixed;left:0;top:0;z-index:9100;width:340px;max-width:calc(100vw - 24px);border-radius:18px;background:rgba(14,21,35,.97);border:1px solid rgba(0,212,170,.3);box-shadow:0 26px 60px rgba(0,0,0,.6),0 0 44px rgba(0,212,170,.09);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);color:#fff;text-align:left;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(10px) scale(.96);transform-origin:var(--ax,50%) 0;transition:opacity .2s ease,transform .26s cubic-bezier(.22,.8,.3,1),visibility 0s linear .26s;}
+.sk-pop[data-side=above]{transform:translateY(-10px) scale(.96);transform-origin:var(--ax,50%) 100%;}
+.sk-pop.show{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition-delay:0s;}
+.sk-pop::before{content:'';position:absolute;left:var(--ax,50%);width:12px;height:12px;background:rgba(14,21,35,1);border:1px solid rgba(0,212,170,.3);transform:translateX(-50%) rotate(45deg);}
+.sk-pop[data-side=below]::before{top:-7px;border-right:0;border-bottom:0;}
+.sk-pop[data-side=above]::before{bottom:-7px;border-left:0;border-top:0;}
+.sk-pop-head{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:18px 18px 0 0;background:linear-gradient(90deg,rgba(0,212,170,.16),transparent 80%);border-bottom:1px solid rgba(255,255,255,.07);}
+.sk-pop-hico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;font-size:19px;color:var(--primary);background:rgba(0,212,170,.14);box-shadow:0 0 18px rgba(0,212,170,.18);}
+.sk-pop-head strong{display:block;font:700 15px/1.25 'Syne',sans-serif;margin-bottom:6px;overflow-wrap:anywhere;}
+.sk-pop-body{padding:12px;max-height:min(46vh,320px);overflow-y:auto;display:grid;gap:14px;}
+.sk-pop-sec{--c:var(--primary);--cbg:rgba(0,212,170,.12);}
+.sk-pop-sec.cert{--c:var(--warning);--cbg:rgba(255,184,0,.12);}
+.sk-pop-sec.job{--c:#7cc4ff;--cbg:rgba(59,157,255,.13);}
+.sk-pop-sec.self{--c:#c4b5fd;--cbg:rgba(167,139,250,.13);}
+.sk-pop-h{display:flex;align-items:center;gap:8px;margin:0 4px 8px;font:700 10.5px 'JetBrains Mono',monospace;letter-spacing:1.2px;text-transform:uppercase;color:var(--c);}
+.sk-pop-h em{margin-left:auto;font-style:normal;min-width:20px;text-align:center;padding:1px 7px;border-radius:20px;background:var(--cbg);}
+.sk-pop-item{display:flex;align-items:center;gap:11px;padding:9px 10px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);color:inherit;text-decoration:none;transition:background .2s,border-color .2s,transform .2s;}
+.sk-pop-item+.sk-pop-item{margin-top:6px;}
+a.sk-pop-item:hover,a.sk-pop-item:focus-visible{background:var(--cbg);border-color:var(--c);transform:translateX(3px);outline:none;}
+.sk-pop-ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;font-size:14px;color:var(--c);background:var(--cbg);}
+.sk-pop-txt{min-width:0;display:flex;flex-direction:column;gap:2px;}
+.sk-pop-txt b{font:700 13px/1.3 'Mulish',sans-serif;overflow-wrap:anywhere;}
+.sk-pop-txt small{font-size:11.5px;line-height:1.35;color:var(--muted);overflow-wrap:anywhere;}
+.sk-pop-go{margin-left:auto;padding-left:4px;font-size:11px;color:var(--c);opacity:.75;}
+@media (prefers-reduced-motion:reduce){.sk-pop,.sk-pop[data-side=above]{transform:none;transition:opacity .15s ease,visibility 0s;}}
 .skill-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,212,170,0.05),transparent);opacity:0;transition:opacity 0.3s;}
 .skill-card:hover{transform:translateY(-8px);border-color:rgba(0,212,170,0.4);box-shadow:0 12px 30px rgba(0,212,170,0.12);}
 .skill-card:hover::before{opacity:1;}
@@ -566,6 +599,15 @@ footer{background:#05050a;border-top:1px solid var(--border);padding:45px 8%;dis
 .cert-adm-info .n{font-weight:700;overflow-wrap:anywhere;}
 .cert-adm-info .m{font-size:12px;color:var(--muted);overflow-wrap:anywhere;}
 .cert-adm-tools{display:flex;gap:6px;flex-shrink:0;}
+.entry-admin-row{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:12px;padding:16px;display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+.entry-admin-info{flex:1;min-width:0;}
+.entry-admin-info .n{font-weight:700;overflow-wrap:anywhere;}
+.entry-admin-info .m{font-size:12px;color:var(--muted);overflow-wrap:anywhere;white-space:pre-line;}
+.entry-admin-tools{display:flex;gap:6px;flex-shrink:0;}
+.evidence-options{max-height:150px;overflow:auto;display:grid;gap:6px;padding:9px;border:1px solid var(--border);border-radius:8px;background:rgba(255,255,255,.025);}
+.evidence-options label{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);}
+.evidence-options input{accent-color:var(--primary);}
+.entry-help{font-size:11px;color:var(--muted);}
 @media(max-width:600px){.set-row{grid-template-columns:1fr;}.set-prev{display:none;}.cert-adm-row{flex-wrap:wrap;}}
 
 /* Icon Archive */
@@ -824,7 +866,7 @@ footer.site-footer{display:block;padding:64px 8% 26px;background:linear-gradient
 .src-filter{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
 .src-filter button{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--muted);font:600 13px 'Mulish',sans-serif;transition:var(--transition)}
 .src-filter button.on,.src-filter button:hover{color:var(--primary);border-color:rgba(0,212,170,.4);background:rgba(0,212,170,.08)}
-#skillTabsContent[data-filter=job] .skill-card:not([data-src=job]),#skillTabsContent[data-filter=self] .skill-card:not([data-src=self]){display:none}
+#skillTabsContent[data-filter=job] .skill-card:not([data-src*=job]),#skillTabsContent[data-filter=self] .skill-card:not([data-src*=self]){display:none}
 .sk-info{display:flex;flex-wrap:wrap;gap:6px}.sk-info .sk-name{width:100%}
 .sk-info .sk-lvl-sel{width:auto;flex:1 1 120px}
 .sk-add-form{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
@@ -1083,58 +1125,13 @@ footer.site-footer .ft-top:hover{color:var(--dark);background:var(--primary);bor
 <!-- ────────────── EXPERIENCE ────────────── -->
 <section id="experience">
   <div class="section-header reveal"><span class="cmd" aria-hidden="true">$ cat ~/work_history.log</span><h3>Work History</h3><p>My professional journey in the garment accessories industry.</p></div>
-  <div class="timeline">
-    <div class="timeline-item reveal-left">
-      <div class="exp-card">
-        <div class="exp-date"><i class="far fa-calendar-alt"></i> 02 March 2024 — Present</div>
-        <h4>Manager Store, QC &amp; Logistic</h4>
-        <span class="exp-company">Blitz Shanghai Co. Ltd Bangladesh</span>
-        <ul>
-          <li>Managing overall store operations and ensuring precise inventory control.</li>
-          <li>Executing strict Quality Control (QC) protocols for garments accessories.</li>
-          <li>Overseeing logistics and supply chain coordination for timely delivery.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="timeline-item reveal-left">
-      <div class="exp-card">
-        <div class="exp-date"><i class="far fa-calendar-alt"></i> June 2021 — March 2024</div>
-        <h4>Jr. Merchandiser</h4>
-        <span class="exp-company">Blitz Shanghai Co. Ltd Bangladesh</span>
-        <ul>
-          <li>Coordinated between buyers and production units for accessory approvals.</li>
-          <li>Managed product development cycles and sampling processes.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <div class="timeline" id="experienceList"></div>
 </section>
 
 <!-- ────────────── EDUCATION ────────────── -->
 <section id="education">
   <div class="section-header reveal"><span class="cmd" aria-hidden="true">$ ls -la ./education</span><h3>Education</h3><p>Academic background and professional training.</p></div>
-  <div class="edu-grid">
-    <div class="edu-card reveal">
-      <div class="edu-icon"><i class="fas fa-university"></i></div>
-      <span class="edu-date">06 Sep 2026 — Continuing</span>
-      <h4>B.Sc. in Computer Science &amp; Engineering (CSE)</h4>
-      <span class="edu-school">World University of Bangladesh (WUB)</span>
-    </div>
-    <div class="edu-card reveal">
-      <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
-      <span class="edu-date">2012 — 2016</span>
-      <h4>Diploma in Computer Engineering</h4>
-      <span class="edu-school">Institute of Communication Technology, Uttara, Dhaka</span>
-      <div class="edu-grade">CGPA: <strong>2.82</strong></div>
-    </div>
-    <div class="edu-card reveal">
-      <div class="edu-icon"><i class="fas fa-school"></i></div>
-      <span class="edu-date">2010 — 2011</span>
-      <h4>Secondary School Certificate</h4>
-      <span class="edu-school">BOU, Barguna</span>
-      <div class="edu-grade">GPA: <strong>3.0</strong></div>
-    </div>
-  </div>
+  <div class="edu-grid" id="educationList"></div>
 </section>
 
 <!-- ────────────── SKILLS ────────────── -->
@@ -1358,6 +1355,23 @@ footer.site-footer .ft-top:hover{color:var(--dark);background:var(--primary);bor
   </div>
 </div>
 
+<!-- EXPERIENCE / EDUCATION EDITOR -->
+<div class="pf-ov" id="entryOv" style="z-index:70000">
+  <div class="pf-box">
+    <button class="pf-close" id="entryClose" type="button" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div class="pf-title" id="entryTitle">Add entry</div>
+    <div class="pf-grid">
+      <div class="fg pf-full"><label class="flbl" for="entryName" id="entryNameLabel">Title *</label><input class="finp" id="entryName" maxlength="120"></div>
+      <div class="fg pf-full"><label class="flbl" for="entryOrg" id="entryOrgLabel">Organization</label><input class="finp" id="entryOrg" maxlength="160"></div>
+      <div class="fg pf-full"><label class="flbl" for="entryDate">Date / period</label><input class="finp" id="entryDate" maxlength="80"></div>
+      <div class="fg pf-full" id="entryDetailsWrap"><label class="flbl" for="entryDetails">Responsibilities (one per line)</label><textarea class="finp" id="entryDetails" rows="5" maxlength="2000" style="resize:vertical"></textarea></div>
+      <div class="fg pf-full" id="entryGradeWrap"><label class="flbl" for="entryGrade">Grade / result</label><input class="finp" id="entryGrade" maxlength="80"></div>
+      <div class="fg pf-full" id="entryIconWrap"><label class="flbl" for="entryIcon">Icon class</label><input class="finp" id="entryIcon" maxlength="60" placeholder="fas fa-graduation-cap"></div>
+    </div>
+    <button class="save-btn" id="entrySave" type="button"><i class="fas fa-save"></i> Save entry</button>
+  </div>
+</div>
+
 <!-- SKILL EDITOR (add / edit) -->
 <div class="pf-ov" id="skOv" role="dialog" aria-modal="true" aria-labelledby="skmTitle">
   <div class="pf-box sk-box">
@@ -1378,8 +1392,10 @@ footer.site-footer .ft-top:hover{color:var(--dark);background:var(--primary);bor
           <button type="button" data-v="expert" aria-pressed="false">Expert</button>
         </div>
       </div>
-      <div class="fg"><label class="flbl" for="skmSrc">Learned from</label><select class="finp fsel" id="skmSrc"></select></div>
-      <div class="fg"><label class="flbl" for="skmCert">Reference certificate</label><select class="finp fsel" id="skmCert"></select></div>
+      <div class="fg pf-full"><span class="flbl">Related jobs</span><div class="evidence-options" id="skmJobs"></div></div>
+      <div class="fg pf-full"><span class="flbl">Related certificates</span><div class="evidence-options" id="skmCerts"></div></div>
+      <div class="fg pf-full"><label class="flbl" for="skmSelf">Self-learning (one course, topic, or practice instance per line)</label><textarea class="finp" id="skmSelf" rows="3" maxlength="500" style="resize:vertical" placeholder="e.g. Practiced Python through personal projects"></textarea></div>
+      <p class="entry-help pf-full">Select any number of jobs and certificates. Skill cards show these details on hover.</p>
     </div>
     <div class="fld-err" id="skmErr" role="alert"></div>
     <button class="save-btn" id="skmSave" type="button"><i class="fas fa-save"></i> Save skill</button>
@@ -1410,6 +1426,8 @@ footer.site-footer .ft-top:hover{color:var(--dark);background:var(--primary);bor
       <button class="adm-nb active" data-s="overview"><i class="fas fa-chart-bar"></i> Overview</button>
       <button class="adm-nb" data-s="visitors"><i class="fas fa-users"></i> Visitors</button>
       <button class="adm-nb" data-s="skills"><i class="fas fa-star"></i> Skills</button>
+      <button class="adm-nb" data-s="jobs"><i class="fas fa-briefcase"></i> Experience</button>
+      <button class="adm-nb" data-s="education"><i class="fas fa-graduation-cap"></i> Education</button>
       <button class="adm-nb" data-s="projects"><i class="fas fa-layer-group"></i> Projects</button>
       <button class="adm-nb" data-s="certs"><i class="fas fa-certificate"></i> Certifications</button>
       <button class="adm-nb" data-s="settings"><i class="fas fa-sliders-h"></i> Site Settings</button>
@@ -1458,13 +1476,31 @@ footer.site-footer .ft-top:hover{color:var(--dark);background:var(--primary);bor
         <div class="adm-title"><i class="fas fa-star"></i> Manage Skills</div>
         <div class="sk-summary" id="skSummary"></div>
         <div class="adm-card">
-          <div class="cat-title"><i class="fas fa-folder-plus"></i> Add a new skill category</div>
+          <div class="cat-title"><i class="fas fa-folder-plus"></i> Add or edit skill groups</div>
           <div class="cat-add">
-            <div class="fg"><label class="flbl">Category name (shown as a tab on the Skills section)</label><input class="finp" id="newCatName" maxlength="40" placeholder="e.g. Networking"></div>
-            <div><button class="add-btn" id="addCatBtn"><i class="fas fa-plus"></i> Add Category</button></div>
+            <div class="fg"><label class="flbl">Group name (shown as a tab in the Skills section)</label><input class="finp" id="newCatName" maxlength="40" placeholder="e.g. Web App &amp; Automation"></div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="add-btn" id="addCatBtn"><i class="fas fa-plus"></i> Add Group</button><button class="add-btn" id="addSuggestedCats" type="button" style="background:transparent;color:var(--primary);border:1px solid var(--primary)"><i class="fas fa-wand-magic-sparkles"></i> Add Suggested Groups</button></div>
           </div>
         </div>
         <div id="skillAdmWrap"></div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="adm-sec" id="s-jobs">
+        <div class="adm-title" style="justify-content:space-between;flex-wrap:wrap;gap:10px;">
+          <span><i class="fas fa-briefcase"></i> Manage Experience</span>
+          <button class="add-btn" id="addJobBtn"><i class="fas fa-plus"></i> Add Job</button>
+        </div>
+        <div id="jobAdmList"></div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="adm-sec" id="s-education">
+        <div class="adm-title" style="justify-content:space-between;flex-wrap:wrap;gap:10px;">
+          <span><i class="fas fa-graduation-cap"></i> Manage Education</span>
+          <button class="add-btn" id="addEducationBtn"><i class="fas fa-plus"></i> Add Education</button>
+        </div>
+        <div id="educationAdmList"></div>
       </div>
 
       <!-- PROJECTS -->
@@ -1524,8 +1560,8 @@ footer.site-footer .ft-top:hover{color:var(--dark);background:var(--primary);bor
 // ═══════════════════════════════════════════════
 // CONFIG & STORAGE
 // ═══════════════════════════════════════════════
-const SK = { skills:'pf_skills', projects:'pf_projects', certs:'pf_certs', settings:'pf_settings', visitors:'pf_visitors' };
-const SYNC = { 'pf_skills':'saveSkills', 'pf_projects':'saveProjects', 'pf_certs':'saveCerts', 'pf_settings':'saveSettings' };   // কোন data → কোন Apps Script action
+const SK = { skills:'pf_skills', projects:'pf_projects', certs:'pf_certs', jobs:'pf_jobs', education:'pf_education', settings:'pf_settings', visitors:'pf_visitors' };
+const SYNC = { 'pf_skills':'saveSkills', 'pf_projects':'saveProjects', 'pf_certs':'saveCerts', 'pf_jobs':'saveJobs', 'pf_education':'saveEducation', 'pf_settings':'saveSettings' };
 
 // ═══════════════════════════════════════════════
 // GOOGLE SHEET DATABASE  (Apps Script Web App)
@@ -1553,7 +1589,7 @@ function cacheWrite(){
   try{
     const projs=(DB[SK.projects]||[]).map(p=>p.image&&p.image.startsWith('data:')?Object.assign({},p,{image:''}):p);
     const certs=(DB[SK.certs]||[]).map(c=>c.image&&c.image.startsWith('data:')?Object.assign({},c,{image:''}):c);
-    localStorage.setItem(CACHE_KEY,JSON.stringify({skills:DB[SK.skills],projects:projs,certs,settings:DB[SK.settings]}));
+    localStorage.setItem(CACHE_KEY,JSON.stringify({skills:DB[SK.skills],projects:projs,certs,jobs:DB[SK.jobs],education:DB[SK.education],settings:DB[SK.settings]}));
   }catch(e){}
 }
 function legacy(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } }
@@ -1575,11 +1611,13 @@ async function fetchPublic(){
       const certs=withDefaultCert(d.certs);
       if(JSON.stringify(certs)!==JSON.stringify(DB[SK.certs])){ DB[SK.certs]=certs; changed=true; }
     }
+    if(Array.isArray(d.jobs)&&JSON.stringify(d.jobs)!==JSON.stringify(DB[SK.jobs])){ DB[SK.jobs]=d.jobs; changed=true; }
+    if(Array.isArray(d.education)&&JSON.stringify(d.education)!==JSON.stringify(DB[SK.education])){ DB[SK.education]=d.education; changed=true; }
     if(d.settings&&typeof d.settings==='object'){
       const ns=Object.assign(clone(DEFAULT_SETTINGS),d.settings);
       if(JSON.stringify(ns)!==JSON.stringify(DB[SK.settings])){ DB[SK.settings]=ns; changed=true; }
     }
-    if(changed){ cacheWrite(); if(uiReady){ renderSkills(); renderProjects(); renderCerts(); applySettings(); } }
+    if(changed){ cacheWrite(); if(uiReady){ renderSkills(); renderProjects(); renderCerts(); renderExperience(); renderEducation(); applySettings(); } }
   }catch(e){ /* slow/offline: cache বা ডিফল্ট ডাটাই থাকবে */ }
   finally{ clearTimeout(timer); }
 }
@@ -1717,7 +1755,7 @@ const DEFAULT_SKILLS = {
     {name:'Linux',icon:'fab fa-linux',level:'intermediate'},
     {name:'Python',icon:'fab fa-python',level:'beginner'}
   ],
-  'Web Development':[
+  'Web App & Automation':[
     {name:'HTML5',icon:'fab fa-html5',level:'expert'},
     {name:'CSS3',icon:'fab fa-css3-alt',level:'intermediate'},
     {name:'PHP',icon:'fab fa-php',level:'beginner'},
@@ -1730,8 +1768,22 @@ const DEFAULT_SKILLS = {
     {name:'Store Management',icon:'fas fa-warehouse',level:'expert'},
     {name:'Label Design',icon:'fas fa-tag',level:'expert'},
     {name:'MS Office Suite',icon:'fas fa-file-word',level:'expert'}
+  ],
+  'ARTIFICIAL INTELLIGENCE & LLM':[
+    {name:'LLM Tools',icon:'fas fa-robot',level:'beginner'},
+    {name:'AI Automation',icon:'fas fa-wand-magic-sparkles',level:'beginner'}
   ]
 };
+
+const DEFAULT_JOBS=[
+  {id:'job-manager-blitz',title:'Manager Store, QC & Logistic',company:'Blitz Shanghai Co. Ltd Bangladesh',date:'02 March 2024 — Present',description:'Managing overall store operations and ensuring precise inventory control.\nExecuting strict Quality Control (QC) protocols for garments accessories.\nOverseeing logistics and supply chain coordination for timely delivery.'},
+  {id:'job-merchandiser-blitz',title:'Jr. Merchandiser',company:'Blitz Shanghai Co. Ltd Bangladesh',date:'June 2021 — March 2024',description:'Coordinated between buyers and production units for accessory approvals.\nManaged product development cycles and sampling processes.'}
+];
+const DEFAULT_EDUCATION=[
+  {id:'edu-bsc-wub',title:'B.Sc. in Computer Science & Engineering (CSE)',school:'World University of Bangladesh (WUB)',date:'06 Sep 2026 — Continuing',grade:'',icon:'fas fa-university'},
+  {id:'edu-diploma-ict',title:'Diploma in Computer Engineering',school:'Institute of Communication Technology, Uttara, Dhaka',date:'2012 — 2016',grade:'CGPA: 2.82',icon:'fas fa-graduation-cap'},
+  {id:'edu-ssc-bou',title:'Secondary School Certificate',school:'BOU, Barguna',date:'2010 — 2011',grade:'GPA: 3.0',icon:'fas fa-school'}
+];
 
 const DEFAULT_SETTINGS = {
   badges:[{icon:'fas fa-award',text:'RMG Expert'},{icon:'fas fa-code',text:'Web Developer'}],
@@ -1912,6 +1964,8 @@ function initData(){
   DB[SK.skills]   = c.skills   || legacy('pf_skills')   || clone(DEFAULT_SKILLS);
   DB[SK.projects] = c.projects || legacy('pf_projects') || clone(DEFAULT_PROJECTS);
   DB[SK.certs]    = withDefaultCert(Array.isArray(c.certs)?c.certs:(legacy('pf_certs')||[]));
+  DB[SK.jobs]     = Array.isArray(c.jobs)?c.jobs:(legacy('pf_jobs')||clone(DEFAULT_JOBS));
+  DB[SK.education]= Array.isArray(c.education)?c.education:(legacy('pf_education')||clone(DEFAULT_EDUCATION));
   DB[SK.settings] = Object.assign(clone(DEFAULT_SETTINGS), c.settings||{});
   DB[SK.visitors] = [];
 }
@@ -2142,6 +2196,8 @@ window.addEventListener('load',function(){
     renderSkills();
     renderProjects();
     renderCerts();
+    renderExperience();
+    renderEducation();
     applySettings();
     uiReady=true;
     buildQR();
@@ -2425,13 +2481,122 @@ function initChatWidget() {
 // SKILLS RENDER
 // ═══════════════════════════════════════════════
 let skFilter='', skActive='';
-function srcOptions(v){ return [['','Not set'],['job','From job'],['self','Self-learning']].map(([k,l])=>`<option value="${k}" ${(v||'')===k?'selected':''}>${l}</option>`).join(''); }
-function certOptions(v){ return '<option value="">No certificate</option>'+(load(SK.certs)||[]).map(c=>`<option value="${esc(c.id)}" ${String(v||'')===String(c.id)?'selected':''}>${esc(c.title)}</option>`).join(''); }
-function skillTags(sk){
-  const cert=sk.cert&&(load(SK.certs)||[]).find(c=>String(c.id)===String(sk.cert)), curl=cert&&safeUrl(cert.url);
-  return (sk.source==='job'?'<span class="sk-src src-job"><i class="fas fa-briefcase"></i> From job</span>':sk.source==='self'?'<span class="sk-src src-self"><i class="fas fa-book-reader"></i> Self-learning</span>':'')
-    +(cert?`<a class="sk-cert" href="${curl?esc(curl):'#certifications'}" ${curl?'target="_blank" rel="noopener noreferrer"':''} title="${esc(cert.title)}"><i class="fas fa-certificate"></i> Certificate</a>`:'');
+function getSkillEvidence(sk){
+  const items=Array.isArray(sk&&sk.evidence)?sk.evidence.filter(e=>e&&['job','cert','self'].includes(e.type)).map(e=>({type:e.type,id:String(e.id||''),label:String(e.label||'')})):[];
+  if(!items.length&&sk&&sk.source==='job') items.push({type:'job',id:'',label:'Work experience'});
+  if(!items.length&&sk&&sk.source==='self') items.push({type:'self',id:'',label:'Self-learning'});
+  if(sk&&sk.cert&&!items.some(e=>e.type==='cert'&&e.id===String(sk.cert))) items.push({type:'cert',id:String(sk.cert),label:''});
+  return items;
 }
+function skillTags(sk){
+  const evidence=getSkillEvidence(sk), jobs=evidence.filter(e=>e.type==='job').length, certs=evidence.filter(e=>e.type==='cert').length, self=evidence.filter(e=>e.type==='self').length;
+  return (jobs?`<span class="sk-src src-job"><i class="fas fa-briefcase"></i> ${jobs} job${jobs===1?'':'s'}</span>`:'')
+    +(certs?`<span class="sk-cert"><i class="fas fa-certificate"></i> ${certs} certificate${certs===1?'':'s'}</span>`:'')
+    +(self?`<span class="sk-src src-self"><i class="fas fa-book-reader"></i> ${self} self-learning</span>`:'');
+}
+// ── Skill hover popover: certificates and work experience, each in its own section ──
+function evidenceDetail(item){
+  if(item.type==='job'){
+    const job=(load(SK.jobs)||[]).find(j=>String(j.id)===item.id);
+    return job?{title:job.title||'Work experience',sub:[job.company,job.date].filter(Boolean).join(' · '),url:''}
+              :{title:item.label||'Work experience',sub:'',url:''};
+  }
+  if(item.type==='cert'){
+    const cert=(load(SK.certs)||[]).find(c=>String(c.id)===item.id);
+    return cert?{title:cert.title||'Certificate',sub:[cert.issuer,cert.date].filter(Boolean).join(' · '),url:safeUrl(cert.url)||''}
+               :{title:item.label||'Certificate',sub:'',url:''};
+  }
+  return {title:item.label||'Self-learning',sub:'',url:''};
+}
+const SKPOP_SECTIONS=[
+  {type:'cert',icon:'fas fa-certificate',label:'Certifications'},
+  {type:'job', icon:'fas fa-briefcase',  label:'Work Experience'},
+  {type:'self',icon:'fas fa-book-reader',label:'Self-learning'}
+];
+function skillPopHtml(sk){
+  const ev=getSkillEvidence(sk); if(!ev.length) return '';
+  const secs=SKPOP_SECTIONS.map(sec=>{
+    const items=ev.filter(e=>e.type===sec.type); if(!items.length) return '';
+    const rows=items.map(it=>{
+      const d=evidenceDetail(it);
+      const inner=`<span class="sk-pop-ico"><i class="${sec.icon}"></i></span><span class="sk-pop-txt"><b>${esc(d.title)}</b>${d.sub?`<small>${esc(d.sub)}</small>`:''}</span>${d.url?'<i class="fas fa-arrow-up-right-from-square sk-pop-go" aria-hidden="true"></i>':''}`;
+      return d.url?`<a class="sk-pop-item" href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">${inner}</a>`:`<div class="sk-pop-item">${inner}</div>`;
+    }).join('');
+    return `<div class="sk-pop-sec ${sec.type}"><div class="sk-pop-h"><i class="${sec.icon}" aria-hidden="true"></i><span>${sec.label}</span><em>${items.length}</em></div>${rows}</div>`;
+  }).join('');
+  return `<div class="sk-pop-head"><span class="sk-pop-hico"><i class="${safeIcon(sk.icon,'fas fa-star')}"></i></span><div><strong>${esc(sk.name)}</strong><span class="skill-badge ${lvlClass(sk.level)}">${lvlLabel(sk.level)}</span></div></div><div class="sk-pop-body">${secs}</div>`;
+}
+const skPop={el:null,card:null,timer:0};
+const skCanHover=()=>window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+function skPopEl(){
+  if(skPop.el) return skPop.el;
+  const d=document.createElement('div');
+  d.id='skPop'; d.className='sk-pop'; d.setAttribute('role','group'); d.setAttribute('aria-label','Certifications and work experience for this skill');
+  d.addEventListener('mouseenter',()=>clearTimeout(skPop.timer));
+  d.addEventListener('mouseleave',()=>skPopHideSoon());
+  d.addEventListener('focusout',e=>{ if(!(e.relatedTarget&&(d.contains(e.relatedTarget)||(skPop.card&&skPop.card.contains(e.relatedTarget))))) skPopHideSoon(); });
+  document.body.appendChild(d);
+  return skPop.el=d;
+}
+function skPopPlace(){
+  const el=skPop.el, c=skPop.card; if(!el||!c) return;
+  const r=c.getBoundingClientRect(), vw=document.documentElement.clientWidth, vh=window.innerHeight, m=12, gap=12;
+  if(r.bottom<0||r.top>vh){ skPopHide(); return; }               // কার্ড স্ক্রিনের বাইরে চলে গেলে পপ-আপও বন্ধ
+  const w=Math.min(340,vw-2*m); el.style.width=w+'px';
+  const h=el.offsetHeight;
+  let left=r.left+r.width/2-w/2; left=Math.max(m,Math.min(left,vw-w-m));
+  const below=vh-r.bottom-gap-m, above=r.top-gap-m;
+  const useBelow=below>=h||below>=above;
+  let top=useBelow?r.bottom+gap:r.top-gap-h; top=Math.max(m,Math.min(top,vh-h-m));
+  el.style.left=left+'px'; el.style.top=top+'px';
+  el.dataset.side=useBelow?'below':'above';
+  el.style.setProperty('--ax',Math.max(24,Math.min(w-24,r.left+r.width/2-left))+'px');
+}
+function skPopShow(card){
+  clearTimeout(skPop.timer);
+  const html=card&&card._sk?skillPopHtml(card._sk):'';
+  if(!html){ skPopHide(); return; }                               // এই স্কিলের সাথে কিছু যুক্ত না থাকলে ফাঁকা বক্স দেখায় না
+  const el=skPopEl();
+  if(skPop.card&&skPop.card!==card) skPop.card.removeAttribute('aria-describedby');
+  el.innerHTML=html; skPop.card=card; card.setAttribute('aria-describedby','skPop');
+  skPopPlace(); el.classList.add('show');
+  skPop.timer=setTimeout(()=>{ if(skPop.card===card) skPopPlace(); },320);   // কার্ডের lift-অ্যানিমেশন শেষ হলে অবস্থান ঠিক করে
+}
+function skPopHide(){
+  clearTimeout(skPop.timer);
+  if(skPop.el) skPop.el.classList.remove('show');
+  if(skPop.card) skPop.card.removeAttribute('aria-describedby');
+  skPop.card=null;
+}
+function skPopHideSoon(){ clearTimeout(skPop.timer); skPop.timer=setTimeout(skPopHide,150); }
+(function bindSkillPop(){
+  const cont=document.getElementById('skillTabsContent'); if(!cont) return;
+  cont.addEventListener('mouseover',e=>{
+    if(!skCanHover()) return;
+    const c=e.target.closest('.skill-card'); if(!c) return;
+    clearTimeout(skPop.timer);
+    if(c===skPop.card) return;
+    skPop.timer=setTimeout(()=>skPopShow(c),90);
+  });
+  cont.addEventListener('mouseout',e=>{
+    if(!skCanHover()) return;
+    const c=e.target.closest('.skill-card'); if(!c) return;
+    const to=e.relatedTarget;
+    if(to&&(c.contains(to)||(skPop.el&&skPop.el.contains(to)))) return;
+    skPopHideSoon();
+  });
+  cont.addEventListener('focusin',e=>{ if(!skCanHover()) return; const c=e.target.closest('.skill-card'); if(c) skPopShow(c); });
+  cont.addEventListener('focusout',e=>{ if(e.relatedTarget&&skPop.el&&skPop.el.contains(e.relatedTarget)) return; skPopHideSoon(); });
+  cont.addEventListener('click',e=>{                               // টাচ ডিভাইস: ট্যাপে খোলে/বন্ধ হয়
+    if(skCanHover()) return;
+    const c=e.target.closest('.skill-card'); if(!c) return;
+    if(skPop.card===c) skPopHide(); else skPopShow(c);
+  });
+  document.addEventListener('click',e=>{ if(skPop.card&&!e.target.closest('.skill-card,.sk-pop')) skPopHide(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') skPopHide(); });
+  window.addEventListener('scroll',()=>{ if(skPop.card) skPopPlace(); },{passive:true});
+  window.addEventListener('resize',()=>{ if(skPop.card) skPopPlace(); });
+})();
 function lvlClass(l){ return l==='beginner'?'lvl-beginner':l==='intermediate'?'lvl-intermediate':'lvl-expert'; }
 function lvlLabel(l){ return l==='beginner'?'Beginner':l==='intermediate'?'Intermediate':'Expert'; }
 
@@ -2440,12 +2605,13 @@ function applySkFilter(){
   const cont=document.getElementById('skillTabsContent'); if(!cont) return;
   cont.dataset.filter=skFilter;
   cont.querySelectorAll('.tab-panel').forEach(p=>{
-    const n=[...p.querySelectorAll('.skill-card')].filter(c=>!skFilter||c.dataset.src===skFilter).length;
+    const n=[...p.querySelectorAll('.skill-card')].filter(c=>!skFilter||c.dataset.src.split(/\s+/).includes(skFilter)).length;
     const m=p.querySelector('.sk-filter-empty'); if(m) m.hidden=n>0;
   });
 }
 
 function renderSkills(){
+  skPopHide();
   const data=load(SK.skills)||DEFAULT_SKILLS;
   const nav=document.getElementById('skillTabsNav');
   const cont=document.getElementById('skillTabsContent');
@@ -2477,9 +2643,10 @@ function renderSkills(){
     data[cat].forEach(sk=>{
       if(!sk||typeof sk!=='object') return;
       const c=document.createElement('div');
-      c.className='skill-card'; c.dataset.src=sk.source||'';
+      c.className='skill-card'; c.dataset.src=[...new Set(getSkillEvidence(sk).map(e=>e.type))].join(' '); c.tabIndex=0;
       const tags=skillTags(sk);
       c.innerHTML=`<div class="skill-icon"><i class="${safeIcon(sk.icon,'fas fa-star')}"></i></div><div class="skill-name">${esc(sk.name)}</div><span class="skill-badge ${lvlClass(sk.level)}">${lvlLabel(sk.level)}</span>${tags?`<div class="sk-tags">${tags}</div>`:''}`;
+      c._sk=sk;
       grid.appendChild(c);
     });
     panel.appendChild(grid);
@@ -2488,13 +2655,32 @@ function renderSkills(){
     panel.appendChild(empty);
     cont.appendChild(panel);
   });
-  if(cats.some(c=>data[c].some(x=>x&&x.source))){
+  if(cats.some(c=>data[c].some(x=>getSkillEvidence(x).some(e=>e.type==='job'||e.type==='self')))){
     const f=document.createElement('div'); f.className='src-filter'; f.setAttribute('role','group'); f.setAttribute('aria-label','Filter skills');
     f.innerHTML=[['','All skills','fa-layer-group'],['job','From job','fa-briefcase'],['self','Self-learning','fa-book-reader']].map(([v,l,i])=>`<button type="button" data-v="${v}" class="${skFilter===v?'on':''}"><i class="fas ${i}"></i> ${l}</button>`).join('');
     f.addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; skFilter=b.dataset.v; f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); applySkFilter(); });
     cont.prepend(f);
   } else if(skFilter) skFilter='';                          // সোর্স-ট্যাগ আর কোথাও না থাকলে পুরোনো ফিল্টার ছেড়ে দেয়
   applySkFilter();
+}
+
+function renderExperience(){
+  const box=document.getElementById('experienceList');
+  if(!box) return;
+  const jobs=load(SK.jobs)||[];
+  box.innerHTML=jobs.map(job=>{
+    const duties=String(job.description||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+    return `<div class="timeline-item reveal-left"><div class="exp-card"><div class="exp-date"><i class="far fa-calendar-alt"></i> ${esc(job.date||'')}</div><h4>${esc(job.title||'')}</h4><span class="exp-company">${esc(job.company||'')}</span>${duties.length?`<ul>${duties.map(d=>`<li>${esc(d)}</li>`).join('')}</ul>`:''}</div></div>`;
+  }).join('')||'<p class="sk-none">Work history will appear here soon.</p>';
+  initReveal();
+}
+
+function renderEducation(){
+  const box=document.getElementById('educationList');
+  if(!box) return;
+  const items=load(SK.education)||[];
+  box.innerHTML=items.map(item=>`<div class="edu-card reveal"><div class="edu-icon"><i class="${safeIcon(item.icon,'fas fa-graduation-cap')}"></i></div><span class="edu-date">${esc(item.date||'')}</span><h4>${esc(item.title||'')}</h4><span class="edu-school">${esc(item.school||'')}</span>${item.grade?`<div class="edu-grade">${esc(item.grade)}</div>`:''}</div>`).join('')||'<p class="sk-none">Education entries will appear here soon.</p>';
+  initReveal();
 }
 
 // ═══════════════════════════════════════════════
@@ -2565,6 +2751,8 @@ document.getElementById('admLogout').addEventListener('click',()=>{
   document.getElementById('adminOv').classList.remove('show');
   document.getElementById('pfOv').classList.remove('show');
   document.getElementById('cfOv').classList.remove('show');
+  document.getElementById('skOv').classList.remove('show');
+  document.getElementById('entryOv').classList.remove('show');
   showToast('Logged out securely');
 });
 
@@ -2582,11 +2770,106 @@ function switchAdmSec(name){
     refreshVisitors().then(renderActiveAdm);       // Sheet থেকে নতুন ডাটা (১৫ সেকেন্ডে একবারের বেশি নয়)
   }
   else if(name==='skills') renderAdmSkills();
+  else if(name==='jobs') renderAdmEntries('jobs');
+  else if(name==='education') renderAdmEntries('education');
   else if(name==='projects') renderAdmProjects();
   else if(name==='certs') renderAdmCerts();
   else if(name==='settings') renderAdmSettings();
   else if(name==='icons') renderIconArchive();
 }
+
+const byId=id=>document.getElementById(id);
+function renderAdmEntries(type){
+  const isJob=type==='jobs', list=load(isJob?SK.jobs:SK.education)||[];
+  const box=byId(isJob?'jobAdmList':'educationAdmList');
+  box.innerHTML='';
+  if(!list.length){
+    box.innerHTML=`<div class="adm-card" style="text-align:center;color:var(--muted)">No ${isJob?'experience':'education'} entries yet.</div>`;
+    return;
+  }
+  list.forEach((item,i)=>{
+    const row=document.createElement('div');
+    row.className='entry-admin-row'; row.dataset.i=i;
+    const details=isJob?item.description:item.grade;
+    row.innerHTML=`<div class="sk-ico-preview"><i class="${safeIcon(item.icon,isJob?'fas fa-briefcase':'fas fa-graduation-cap')}"></i></div>
+      <div class="entry-admin-info"><div class="n">${esc(item.title)}</div><div class="m">${esc([isJob?item.company:item.school,item.date,details].filter(Boolean).join(' · '))}</div></div>
+      <div class="entry-admin-tools"><button class="ct-btn" data-act="edit" title="Edit"><i class="fas fa-pen"></i></button><button class="ct-btn danger" data-act="del" title="Delete"><i class="fas fa-trash"></i></button></div>`;
+    box.appendChild(row);
+  });
+}
+
+function openEntryForm(type,item,idx){
+  const isJob=type==='jobs', ov=byId('entryOv');
+  ov.dataset.type=type; ov.dataset.idx=idx==null?'':String(idx);
+  byId('entryTitle').textContent=(item?'Edit ':'Add ')+(isJob?'Job':'Education');
+  byId('entryNameLabel').textContent=(isJob?'Job title':'Degree / qualification')+' *';
+  byId('entryOrgLabel').textContent=isJob?'Company / organization':'School / institution';
+  byId('entryDetailsWrap').hidden=!isJob;
+  byId('entryGradeWrap').hidden=isJob;
+  byId('entryIconWrap').hidden=isJob;
+  byId('entryName').value=item?item.title||'':'';
+  byId('entryOrg').value=item?(isJob?item.company:item.school)||'':'';
+  byId('entryDate').value=item?item.date||'':'';
+  byId('entryDetails').value=item?item.description||'':'';
+  byId('entryGrade').value=item?item.grade||'':'';
+  byId('entryIcon').value=item?item.icon||'':(isJob?'fas fa-briefcase':'fas fa-graduation-cap');
+  ov.classList.add('show');
+  setTimeout(()=>byId('entryName').focus(),40);
+}
+
+function closeEntryForm(){ byId('entryOv').classList.remove('show'); }
+byId('entryClose').addEventListener('click',closeEntryForm);
+byId('entryOv').addEventListener('mousedown',e=>{ if(e.target.id==='entryOv') closeEntryForm(); });
+byId('addJobBtn').addEventListener('click',()=>openEntryForm('jobs'));
+byId('addEducationBtn').addEventListener('click',()=>openEntryForm('education'));
+byId('jobAdmList').addEventListener('click',async e=>{
+  const btn=e.target.closest('[data-act]'); if(!btn) return;
+  const idx=+btn.closest('.entry-admin-row').dataset.i, list=load(SK.jobs)||[], job=list[idx];
+  if(!job) return;
+  if(btn.dataset.act==='edit') openEntryForm('jobs',job,idx);
+  else if(btn.dataset.act==='del'){
+    const yes=await dlgAsk({title:'Delete job?',danger:true,ok:'Delete',msg:'“'+job.title+'” will be removed and unlinked from related skills.'});
+    if(!yes) return;
+    const jobs=load(SK.jobs)||[], pos=jobs.findIndex(x=>String(x.id)===String(job.id));
+    if(pos<0) return;
+    jobs.splice(pos,1); save(SK.jobs,jobs); unlinkJobFromSkills(job.id);
+    renderAdmEntries('jobs'); renderExperience(); renderSkills(); renderAdmSkills();
+    showToast('Job deleted.');
+  }
+});
+byId('educationAdmList').addEventListener('click',async e=>{
+  const btn=e.target.closest('[data-act]'); if(!btn) return;
+  const idx=+btn.closest('.entry-admin-row').dataset.i, list=load(SK.education)||[], item=list[idx];
+  if(!item) return;
+  if(btn.dataset.act==='edit') openEntryForm('education',item,idx);
+  else if(btn.dataset.act==='del'){
+    const yes=await dlgAsk({title:'Delete education?',danger:true,ok:'Delete',msg:'“'+item.title+'” will be removed.'});
+    if(!yes) return;
+    const items=load(SK.education)||[], pos=items.findIndex(x=>String(x.id)===String(item.id));
+    if(pos<0) return;
+    items.splice(pos,1); save(SK.education,items); renderAdmEntries('education'); renderEducation();
+    showToast('Education entry deleted.');
+  }
+});
+byId('entrySave').addEventListener('click',()=>{
+  const ov=byId('entryOv'), type=ov.dataset.type, idx=ov.dataset.idx;
+  const isJob=type==='jobs', list=load(isJob?SK.jobs:SK.education)||[];
+  const title=byId('entryName').value.replace(/\s+/g,' ').trim().slice(0,120);
+  const org=byId('entryOrg').value.replace(/\s+/g,' ').trim().slice(0,160);
+  if(!title) return showToast(isJob?'Job title is required':'Education title is required',true);
+  if(!org) return showToast(isJob?'Company / organization is required':'School / institution is required',true);
+  const existing=idx!==''?list[+idx]:null;
+  if(idx!==''&&!existing) return showToast('This entry is no longer available. Please reopen the form.',true);
+  const entry=isJob
+    ?{id:existing&&existing.id||String(Date.now()),title,company:org,date:byId('entryDate').value.trim().slice(0,80),description:byId('entryDetails').value.trim().slice(0,2000)}
+    :{id:existing&&existing.id||String(Date.now()),title,school:org,date:byId('entryDate').value.trim().slice(0,80),grade:byId('entryGrade').value.trim().slice(0,80),icon:safeIcon(byId('entryIcon').value,'fas fa-graduation-cap')};
+  if(idx!=='') list[+idx]=entry; else list.push(entry);
+  save(isJob?SK.jobs:SK.education,list); closeEntryForm();
+  renderAdmEntries(type);
+  if(isJob){ renderExperience(); renderSkills(); }
+  else renderEducation();
+  showToast('✅ '+(isJob?'Experience':'Education')+' entry saved!');
+});
 
 // OVERVIEW
 function renderOverview(){
@@ -2635,7 +2918,6 @@ function renderVisitors(){
 //   ক্যাটাগরি : যোগ / নাম বদল / ক্রম / মুছা
 //   স্কিল      : যোগ / এডিট (নাম, আইকন, লেভেল, সোর্স, সার্টিফিকেট, ক্যাটাগরি) / ক্রম / মুছা
 // ═══════════════════════════════════════════════
-const byId=id=>document.getElementById(id);
 const SK_LEVELS=['beginner','intermediate','expert'];
 // Object.prototype-এর নাম (__proto__, constructor, toString …) ক্যাটাগরি নাম হলে ডাটা ভেঙে যায় → আটকানো হয়
 const SK_BAD_NAMES=new Set(Object.getOwnPropertyNames(Object.prototype).map(s=>s.toLowerCase()));
@@ -2695,7 +2977,7 @@ function dlgAsk(o){
 function renderAdmSkills(){
   const skills=skData(), wrap=byId('skillAdmWrap'), body=document.querySelector('.admin-body');
   const keep=body?body.scrollTop:0;                                // সম্পাদনার পর স্ক্রল যেন উপরে লাফিয়ে না যায়
-  const cats=Object.keys(skills), certs=load(SK.certs)||[];
+  const cats=Object.keys(skills);
   let total=0; const lv={beginner:0,intermediate:0,expert:0};
   cats.forEach(c=>(Array.isArray(skills[c])?skills[c]:[]).forEach(s=>{ total++; if(lv[s.level]!=null) lv[s.level]++; }));
   byId('skSummary').innerHTML=
@@ -2714,14 +2996,14 @@ function renderAdmSkills(){
     const sec=document.createElement('section');
     sec.className='adm-card sk-cat'; sec.dataset.ci=ci;
     const items=list.map((sk,i)=>{
-      const cert=sk.cert&&certs.find(c=>String(c.id)===String(sk.cert));
-      const ct=cert?String(cert.title||''):'';
-      const src=sk.source==='job'?'<span class="sk-src src-job"><i class="fas fa-briefcase"></i> From job</span>'
-               :sk.source==='self'?'<span class="sk-src src-self"><i class="fas fa-book-reader"></i> Self-learning</span>':'';
-      const crt=cert?`<span class="sk-cert" title="${esc(ct)}"><i class="fas fa-certificate"></i> ${esc(ct.length>22?ct.slice(0,21)+'…':ct)}</span>`:'';
+      const evidence=getSkillEvidence(sk);
+      const jobs=evidence.filter(e=>e.type==='job').length, certs=evidence.filter(e=>e.type==='cert').length, self=evidence.filter(e=>e.type==='self').length;
+      const meta=(jobs?`<span class="sk-src src-job"><i class="fas fa-briefcase"></i> ${jobs} job${jobs===1?'':'s'}</span>`:'')
+        +(certs?`<span class="sk-cert"><i class="fas fa-certificate"></i> ${certs} certificate${certs===1?'':'s'}</span>`:'')
+        +(self?`<span class="sk-src src-self"><i class="fas fa-book-reader"></i> ${self} self-learning</span>`:'');
       return `<div class="sk-item" data-i="${i}">
         <div class="sk-ico-preview"><i class="${safeIcon(sk.icon,'fas fa-star')}"></i></div>
-        <div class="sk-main"><div class="sk-nm">${esc(sk.name)}</div><div class="sk-meta"><span class="skill-badge ${lvlClass(sk.level)}">${lvlLabel(sk.level)}</span>${src}${crt}</div></div>
+        <div class="sk-main"><div class="sk-nm">${esc(sk.name)}</div><div class="sk-meta"><span class="skill-badge ${lvlClass(sk.level)}">${lvlLabel(sk.level)}</span>${meta}</div></div>
         <div class="sk-acts">
           <button type="button" class="sk-act" data-act="sup" title="Move up" aria-label="Move up" ${i===0?'disabled':''}><i class="fas fa-arrow-up"></i></button>
           <button type="button" class="sk-act" data-act="sdown" title="Move down" aria-label="Move down" ${i===list.length-1?'disabled':''}><i class="fas fa-arrow-down"></i></button>
@@ -2729,14 +3011,14 @@ function renderAdmSkills(){
           <button type="button" class="sk-act danger" data-act="sdel" title="Delete skill" aria-label="Delete skill"><i class="fas fa-trash"></i></button>
         </div></div>`;
     }).join('');
-    sec.innerHTML=`<header class="sk-cat-h"><span class="sk-cat-ico"><i class="fas fa-folder-open"></i></span>
+    sec.innerHTML=`<div class="sk-cat-h"><span class="sk-cat-ico"><i class="fas fa-folder-open"></i></span>
         <div class="sk-cat-t"><h4>${esc(cat)}</h4><span>${list.length} skill${list.length===1?'':'s'}${list.length?'':' — empty categories stay hidden on your site'}</span></div>
         <div class="cat-tools">
           <button type="button" class="ct-btn" data-act="up" title="Move category up" aria-label="Move category up" ${ci===0?'disabled':''}><i class="fas fa-arrow-up"></i></button>
           <button type="button" class="ct-btn" data-act="down" title="Move category down" aria-label="Move category down" ${ci===cats.length-1?'disabled':''}><i class="fas fa-arrow-down"></i></button>
           <button type="button" class="ct-btn" data-act="rename" title="Rename category" aria-label="Rename category"><i class="fas fa-pen"></i></button>
           <button type="button" class="ct-btn danger" data-act="delcat" title="Delete category" aria-label="Delete category"><i class="fas fa-trash"></i></button>
-        </div></header>
+        </div></div>
       <div class="sk-list">${items}<button type="button" class="sk-add-tile" data-act="sadd"><i class="fas fa-plus"></i> Add skill</button></div>`;
     wrap.appendChild(sec);
   });
@@ -2767,6 +3049,13 @@ function addCat(){
   const name=cleanCatName(inp.value), skills=skData();
   skills[name]=[]; save(SK.skills,skills); inp.value='';
   afterSkillChange('✅ Category added!');
+}
+function addSuggestedCats(){
+  const skills=skData(), known=new Set(Object.keys(skills).map(name=>name.toLowerCase()));
+  const missing=Object.keys(DEFAULT_SKILLS).filter(name=>!known.has(name.toLowerCase()));
+  if(!missing.length) return showToast('All suggested groups already exist.');
+  missing.forEach(name=>{ skills[name]=[]; });
+  save(SK.skills,skills); afterSkillChange('✅ Added '+missing.length+' suggested skill group'+(missing.length===1?'':'s')+'.');
 }
 async function renameCat(ci){
   const old=skillCats()[ci]; if(old==null) return;
@@ -2815,8 +3104,36 @@ async function delSkill(ci,i){
 // সার্টিফিকেট মুছলে স্কিলে ঝুলে থাকা রেফারেন্স সাফ করে
 function unlinkCertFromSkills(id){
   const skills=skData(); let n=0;
-  Object.keys(skills).forEach(c=>(skills[c]||[]).forEach(s=>{ if(s&&String(s.cert||'')===String(id)){ s.cert=''; n++; } }));
+  Object.keys(skills).forEach(c=>(skills[c]||[]).forEach(s=>{
+    if(!s) return;
+    const before=Array.isArray(s.evidence)?s.evidence.length:0;
+    if(Array.isArray(s.evidence)) s.evidence=s.evidence.filter(e=>!(e&&e.type==='cert'&&String(e.id)===String(id)));
+    const linked=String(s.cert||'')===String(id);
+    if(linked) s.cert='';
+    if(before!==(Array.isArray(s.evidence)?s.evidence.length:0)||linked) n++;
+  }));
   if(n) save(SK.skills,skills);
+}
+function unlinkJobFromSkills(id){
+  const skills=skData(); let changed=false;
+  Object.keys(skills).forEach(c=>(skills[c]||[]).forEach(s=>{
+    if(!s||!Array.isArray(s.evidence)) return;
+    const next=s.evidence.filter(e=>!(e&&e.type==='job'&&String(e.id)===String(id)));
+    if(next.length!==s.evidence.length){ s.evidence=next; changed=true; }
+  }));
+  if(changed) save(SK.skills,skills);
+}
+
+function renderEvidenceChoices(id,options,selected,type){
+  const box=byId(id), chosen=new Set(selected.filter(e=>e.type===type).map(e=>String(e.id)));
+  box.innerHTML=options.length?options.map(item=>{
+    const title=type==='job'?[item.title,item.company].filter(Boolean).join(' — '):[item.title,item.issuer].filter(Boolean).join(' — ');
+    return `<label><input type="checkbox" value="${esc(item.id)}" ${chosen.has(String(item.id))?'checked':''}> <span>${esc(title)}</span></label>`;
+  }).join(''):'<span class="entry-help">No entries yet. Add them in the Experience or Certifications section.</span>';
+}
+
+function readEvidenceChoices(id,type){
+  return [...byId(id).querySelectorAll('input[type="checkbox"]:checked')].map(input=>({type,id:input.value,label:''}));
 }
 
 // ── Skill editor (add / edit) ──
@@ -2863,8 +3180,10 @@ function openSkillModal(ci,i){
   byId('skmCat').innerHTML=cats.map((c,k)=>`<option value="${k}" ${k===ci?'selected':''}>${esc(c)}</option>`).join('');
   byId('skmIcon').value=sk?(sk.icon||''):'fas fa-star';
   setSkLevel(sk?sk.level:'beginner');
-  byId('skmSrc').innerHTML=srcOptions(sk?sk.source:'');
-  byId('skmCert').innerHTML=certOptions(sk?sk.cert:'');
+  const evidence=sk?getSkillEvidence(sk):[];
+  renderEvidenceChoices('skmJobs',load(SK.jobs)||[],evidence,'job');
+  renderEvidenceChoices('skmCerts',load(SK.certs)||[],evidence,'cert');
+  byId('skmSelf').value=evidence.filter(e=>e.type==='self').map(e=>e.label).filter(Boolean).join('\n');
   byId('skmErr').textContent='';
   byId('skmPick').scrollTop=0;
   skIconSync(false);
@@ -2886,7 +3205,10 @@ function saveSkillModal(){
   const fromCat=cats[skEdit.ci], isNew=skEdit.i==null;
   const dup=(skills[toCat]||[]).some((s,k)=>String(s.name).toLowerCase()===name.toLowerCase()&&!(!isNew&&toCat===fromCat&&k===skEdit.i));
   if(dup){ err('“'+name+'” already exists in “'+toCat+'”'); byId('skmName').focus(); return; }
-  const item={name,icon,level:skLevel,source:byId('skmSrc').value,cert:byId('skmCert').value};
+  const evidence=readEvidenceChoices('skmJobs','job').concat(readEvidenceChoices('skmCerts','cert'))
+    .concat(byId('skmSelf').value.split(/\r?\n/).map(x=>x.replace(/\s+/g,' ').trim()).filter(Boolean).slice(0,30).map(label=>({type:'self',id:'',label:label.slice(0,120)}))).slice(0,30);
+  const firstCert=evidence.find(e=>e.type==='cert'), hasJob=evidence.some(e=>e.type==='job'), hasSelf=evidence.some(e=>e.type==='self');
+  const item={name,icon,level:skLevel,source:hasJob?'job':hasSelf?'self':'',cert:firstCert?firstCert.id:'',evidence};
   if(isNew) skills[toCat].push(item);
   else if(toCat===fromCat) skills[fromCat][skEdit.i]=item;
   else { skills[fromCat].splice(skEdit.i,1); skills[toCat].push(item); }   // অন্য ক্যাটাগরিতে সরানো
@@ -2909,6 +3231,7 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&byId('skOv').classList.contains('show')&&!byId('dlgOv').classList.contains('show')) closeSkillModal();
 });
 byId('addCatBtn').addEventListener('click',addCat);
+byId('addSuggestedCats').addEventListener('click',addSuggestedCats);
 byId('newCatName').addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); addCat(); } });
 
 // CERTIFICATIONS ADMIN
@@ -2934,7 +3257,7 @@ function renderAdmCerts(){
     box.appendChild(row);
   });
 }
-function afterCertChange(msg){ renderCerts(); renderSkills(); renderAdmCerts(); if(msg) showToast(msg); }
+function afterCertChange(msg){ renderCerts(); renderSkills(); renderAdmSkills(); renderAdmCerts(); if(msg) showToast(msg); }
 document.getElementById('certAdmList').addEventListener('click',e=>{
   const t=e.target.closest('[data-act]'); if(!t) return;
   const i=+t.dataset.i, list=load(SK.certs)||[], act=t.dataset.act;
